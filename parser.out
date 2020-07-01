@@ -1,0 +1,209 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    ASK
+    COSO
+    DECRE
+    DERLLAVE
+    FLECHA
+    INCE
+    IZQLLAVE
+    PUNTERO
+    SXOR
+    VAR
+    abs
+    array
+    exit
+    goto
+    return
+    sizeof
+    unset
+    xor
+
+Grammar
+
+Rule 0     S' -> s
+Rule 1     s -> lbody
+Rule 2     lbody -> lbody body
+Rule 3     lbody -> body
+Rule 4     body -> TYPE ID IZQPAR lpam DERPAR IZQCOR linst DERCOR
+Rule 5     body -> TYPE main IZQPAR lpam DERPAR IZQCOR linst DERCOR
+Rule 6     body -> struct ID IZQCOR linst DERCOR
+Rule 7     linst -> linst inst
+Rule 8     linst -> inst
+Rule 9     lpam -> lparam
+Rule 10    lpam -> <empty>
+Rule 11    lparam -> lparam COMA TYPE ident
+Rule 12    lparam -> TYPE ident
+Rule 13    inst -> asig
+Rule 14    inst -> para
+Rule 15    inst -> si
+Rule 16    inst -> mientras
+Rule 17    inst -> cual
+Rule 18    inst -> dow
+Rule 19    inst -> prin
+Rule 20    inst -> decla
+Rule 21    asig -> ident lacs IGUAL exp PCOMA
+Rule 22    decla -> TYPE ident lacs IGUAL exp PCOMA
+Rule 23    mientras -> while IZQPAR exp DERPAR IZQCOR linst DERCOR
+Rule 24    dow -> do IZQCOR linst DERCOR while IZQPAR exp DERPAR PCOMA
+Rule 25    si -> if IZQPAR exp DERPAR IZQCOR linst DERCOR lelsi els
+Rule 26    si -> if IZQPAR exp DERPAR IZQCOR linst DERCOR els
+Rule 27    lelsi -> lelsi elsi
+Rule 28    lelsi -> elsi
+Rule 29    elsi -> else if IZQPAR exp DERPAR IZQCOR linst DERCOR
+Rule 30    els -> else IZQCOR linst DERCOR
+Rule 31    els -> <empty>
+Rule 32    para -> for IZQPAR exp DERPAR IZQCOR linst DERCOR
+Rule 33    cual -> switch IZQPAR exp DERPAR IZQCOR lcase def DERCOR
+Rule 34    lcase -> lcase caso
+Rule 35    lcase -> caso
+Rule 36    caso -> case ID DP linst break PCOMA
+Rule 37    caso -> case ID DP linst
+Rule 38    def -> default DP linst break PCOMA
+Rule 39    def -> <empty>
+Rule 40    prin -> printf IZQPAR STR lexpr DERPAR PCOMA
+Rule 41    prin -> printf IZQPAR STR DERPAR PCOMA
+Rule 42    exp -> scanf IZQPAR DERPAR
+Rule 43    lexpr -> lexpr COMA exp
+Rule 44    lexpr -> COMA exp
+Rule 45    ident -> ID
+Rule 46    lacs -> lacs acs
+Rule 47    lacs -> acs
+Rule 48    lacs -> <empty>
+Rule 49    acs -> IZQCOR Exp DERCOR
+Rule 50    acs -> PUNTO ID
+Rule 51    exp -> exp SUMA exp
+Rule 52    exp -> exp RESTA exp
+Rule 53    exp -> exp MULTI exp
+Rule 54    exp -> exp DIV exp
+Rule 55    exp -> exp PORCENTAJE exp
+Rule 56    exp -> exp DIGUAL exp
+Rule 57    exp -> exp DESIGUAL exp
+Rule 58    exp -> exp MAYOR exp
+Rule 59    exp -> exp MENOR exp
+Rule 60    exp -> exp MAYORIGUAL exp
+Rule 61    exp -> exp MENORIGUAL exp
+Rule 62    exp -> exp AND exp
+Rule 63    exp -> exp OR exp
+Rule 64    exp -> exp BAND exp
+Rule 65    exp -> exp BOR exp
+Rule 66    exp -> exp BXOR exp
+Rule 67    exp -> exp BLEFT exp
+Rule 68    exp -> exp BRIGHT exp
+Rule 69    exp -> RESTA exp
+Rule 70    exp -> NOT exp
+Rule 71    exp -> BNOT exp
+Rule 72    exp -> DOUBLE
+Rule 73    exp -> INTEGER
+Rule 74    exp -> ident
+Rule 75    exp -> STR
+Rule 76    TYPE -> int
+Rule 77    TYPE -> float
+Rule 78    TYPE -> char
+Rule 79    TYPE -> double
+
+Terminals, with rules where they appear
+
+AND                  : 62
+ASK                  : 
+BAND                 : 64
+BLEFT                : 67
+BNOT                 : 71
+BOR                  : 65
+BRIGHT               : 68
+BXOR                 : 66
+COMA                 : 11 43 44
+COSO                 : 
+DECRE                : 
+DERCOR               : 4 5 6 23 24 25 26 29 30 32 33 49
+DERLLAVE             : 
+DERPAR               : 4 5 23 24 25 26 29 32 33 40 41 42
+DESIGUAL             : 57
+DIGUAL               : 56
+DIV                  : 54
+DOUBLE               : 72
+DP                   : 36 37 38
+FLECHA               : 
+ID                   : 4 6 36 37 45 50
+IGUAL                : 21 22
+INCE                 : 
+INTEGER              : 73
+IZQCOR               : 4 5 6 23 24 25 26 29 30 32 33 49
+IZQLLAVE             : 
+IZQPAR               : 4 5 23 24 25 26 29 32 33 40 41 42
+MAYOR                : 58
+MAYORIGUAL           : 60
+MENOR                : 59
+MENORIGUAL           : 61
+MULTI                : 53
+NOT                  : 70
+OR                   : 63
+PCOMA                : 21 22 24 36 38 40 41
+PORCENTAJE           : 55
+PUNTERO              : 
+PUNTO                : 50
+RESTA                : 52 69
+STR                  : 40 41 75
+SUMA                 : 51
+SXOR                 : 
+VAR                  : 
+abs                  : 
+array                : 
+break                : 36 38
+case                 : 36 37
+char                 : 78
+default              : 38
+do                   : 24
+double               : 79
+else                 : 29 30
+error                : 
+exit                 : 
+float                : 77
+for                  : 32
+goto                 : 
+if                   : 25 26 29
+int                  : 76
+main                 : 5
+printf               : 40 41
+return               : 
+scanf                : 42
+sizeof               : 
+struct               : 6
+switch               : 33
+unset                : 
+while                : 23 24
+xor                  : 
+
+Nonterminals, with rules where they appear
+
+Exp                  : 49
+TYPE                 : 4 5 11 12 22
+acs                  : 46 47
+asig                 : 13
+body                 : 2 3
+caso                 : 34 35
+cual                 : 17
+decla                : 20
+def                  : 33
+dow                  : 18
+els                  : 25 26
+elsi                 : 27 28
+exp                  : 21 22 23 24 25 26 29 32 33 43 44 51 51 52 52 53 53 54 54 55 55 56 56 57 57 58 58 59 59 60 60 61 61 62 62 63 63 64 64 65 65 66 66 67 67 68 68 69 70 71
+ident                : 11 12 21 22 74
+inst                 : 7 8
+lacs                 : 21 22 46
+lbody                : 1 2
+lcase                : 33 34
+lelsi                : 25 27
+lexpr                : 40 43
+linst                : 4 5 6 7 23 24 25 26 29 30 32 36 37 38
+lpam                 : 4 5
+lparam               : 9 11
+mientras             : 16
+para                 : 14
+prin                 : 19
+s                    : 0
+si                   : 15
+
