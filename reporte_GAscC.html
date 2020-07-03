@@ -1,0 +1,565 @@
+ <html>
+<head>
+
+<style>
+.et {background-color: powderblue;}
+</style>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<h1>Reporte Gramatical: Gramatica Ascendente</h1>
+	<h3> Ricardo Menéndez - 201602916 </h3>
+<table width="1000" border="1" align="center">
+    <tr> <td colspan=2  class="et" > Break:   </td> </tr>
+        <tr> 
+        <td> <p>inst => struct id { BODY }   </p></td> 
+        <td><p>  
+        t[0] = Struct (t[1] )</p></td> 
+        </tr>
+        
+<tr> <td colspan=2  class="et" > Contenido METODO:  main </td> </tr>
+        <tr> 
+        <td> <p>ListaInstrucciones => ListaInstrucciones  <br/> |  Instrucciones PC ";"<br/> </p></td> 
+        <td><p> 
+    if(len(t)==3):<br/>
+        t[0] = []<br/>
+        t[0].append(t[1])<br/><br/>
+    if(len(t)==4):<br/>
+        t[0] = t[1]<br/>
+        t[0].append(t[2]) </p></td> 
+        </tr>
+        <tr>
+            <td> Intrucciones =>    asignacion<br/>
+                    |   declaracion<br/>
+                    |   iff<br/>
+                    |   whilee<br/>
+                    |   forr<br/>
+                    |   dowhile<br/>
+                    |   switchh<br/>
+                    |   jump<br/>
+                    |   printt<br/>
+                    |   tag<br/>
+                    |   gotot<br/> </td> <td> <p> t[0] = t[1] </p> </td>
+        </tr>
+<tr> <td colspan=2  class="et" > DECLARACION:   </td> </tr>
+        <tr> 
+        <td> <p>Asignacion => TIPO id LAccesos= expresion   </p></td> 
+        <td><p>  
+        t[0] = Asignacion(t[1],t[2],t[3])</p></td> 
+        </tr>
+        <tr>
+            <td> LAccesos =>   LAccesos [ Exp ]<br/>
+                    |   LAccesos .id<br/>
+                    |   .id<br/>
+                    |   [Exp]<br/>
+                    |    </td> <td> <p> Se crea una lista con los accesos, o si no viene nada, se sube None </p> </td>
+        </tr>
+
+        <tr> 
+        <td> <p>EXP  =>  entero <br/> </p></td> 
+        <td><p>
+        t[0]  = ValorEntero(t[1]) </p></td> 
+        </tr><tr> <td colspan=2  class="et" > ASIGNACION:   </td> </tr>
+        <tr> 
+        <td> <p>Asignacion => id LAccesos= expresion   </p></td> 
+        <td><p>  
+        t[0] = Asignacion(t[1],t[2],t[3])</p></td> 
+        </tr>
+        <tr>
+            <td> LAccesos =>   LAccesos [ Exp ]<br/>
+                    |   LAccesos .id<br/>
+                    |   .id<br/>
+                    |   [Exp]<br/>
+                    |    </td> <td> <p> Se crea una lista con los accesos, o si no viene nada, se sube None </p> </td>
+        </tr>
+
+        <tr> 
+        <td> <p>EXP  =>  String <br/> </p></td> 
+        <td><p>
+        t[0]  = ValorString(t[1]) </p></td> 
+        </tr><tr> <td colspan=2  class="et" > ASIGNACION:   </td> </tr>
+        <tr> 
+        <td> <p>Asignacion => id LAccesos= expresion   </p></td> 
+        <td><p>  
+        t[0] = Asignacion(t[1],t[2],t[3])</p></td> 
+        </tr>
+        <tr>
+            <td> LAccesos =>   LAccesos [ Exp ]<br/>
+                    |   LAccesos .id<br/>
+                    |   .id<br/>
+                    |   [Exp]<br/>
+                    |    </td> <td> <p> Se crea una lista con los accesos, o si no viene nada, se sube None </p> </td>
+        </tr>
+
+        <tr> 
+        <td> <p>EXP  =>  String <br/> </p></td> 
+        <td><p>
+        t[0]  = ValorString(t[1]) </p></td> 
+        </tr><tr> <td colspan=2  class="et" > ASIGNACION:   </td> </tr>
+        <tr> 
+        <td> <p>Asignacion => id LAccesos= expresion   </p></td> 
+        <td><p>  
+        t[0] = Asignacion(t[1],t[2],t[3])</p></td> 
+        </tr>
+        <tr>
+            <td> LAccesos =>   LAccesos [ Exp ]<br/>
+                    |   LAccesos .id<br/>
+                    |   .id<br/>
+                    |   [Exp]<br/>
+                    |    </td> <td> <p> Se crea una lista con los accesos, o si no viene nada, se sube None </p> </td>
+        </tr>
+
+        <tr> 
+        <td> <p>EXP  =>  String <br/> </p></td> 
+        <td><p>
+        t[0]  = ValorString(t[1]) </p></td> 
+        </tr><tr> <td colspan=2  class="et" > ASIGNACION:   </td> </tr>
+        <tr> 
+        <td> <p>Asignacion => id LAccesos= expresion   </p></td> 
+        <td><p>  
+        t[0] = Asignacion(t[1],t[2],t[3])</p></td> 
+        </tr>
+        <tr>
+            <td> LAccesos =>   LAccesos [ Exp ]<br/>
+                    |   LAccesos .id<br/>
+                    |   .id<br/>
+                    |   [Exp]<br/>
+                    |    </td> <td> <p> Se crea una lista con los accesos, o si no viene nada, se sube None </p> </td>
+        </tr>
+
+        <tr> 
+        <td> <p>EXP  =>  entero <br/> </p></td> 
+        <td><p>
+        t[0]  = ValorEntero(t[1]) </p></td> 
+        </tr><tr> <td colspan=2  class="et" > ASIGNACION:   </td> </tr>
+        <tr> 
+        <td> <p>Asignacion => id LAccesos= expresion   </p></td> 
+        <td><p>  
+        t[0] = Asignacion(t[1],t[2],t[3])</p></td> 
+        </tr>
+        <tr>
+            <td> LAccesos =>   LAccesos [ Exp ]<br/>
+                    |   LAccesos .id<br/>
+                    |   .id<br/>
+                    |   [Exp]<br/>
+                    |    </td> <td> <p> Se crea una lista con los accesos, o si no viene nada, se sube None </p> </td>
+        </tr>
+
+        <tr> 
+        <td> <p>EXP  =>  entero <br/> </p></td> 
+        <td><p>
+        t[0]  = ValorEntero(t[1]) </p></td> 
+        </tr><tr> <td colspan=2  class="et" > ASIGNACION:   </td> </tr>
+        <tr> 
+        <td> <p>Asignacion => id LAccesos= expresion   </p></td> 
+        <td><p>  
+        t[0] = Asignacion(t[1],t[2],t[3])</p></td> 
+        </tr>
+        <tr>
+            <td> LAccesos =>   LAccesos [ Exp ]<br/>
+                    |   LAccesos .id<br/>
+                    |   .id<br/>
+                    |   [Exp]<br/>
+                    |    </td> <td> <p> Se crea una lista con los accesos, o si no viene nada, se sube None </p> </td>
+        </tr>
+
+        <tr> 
+        <td> <p>EXP  =>  String <br/> </p></td> 
+        <td><p>
+        t[0]  = ValorString(t[1]) </p></td> 
+        </tr><tr> <td colspan=2  class="et" > ASIGNACION:   </td> </tr>
+        <tr> 
+        <td> <p>Asignacion => id LAccesos= expresion   </p></td> 
+        <td><p>  
+        t[0] = Asignacion(t[1],t[2],t[3])</p></td> 
+        </tr>
+        <tr>
+            <td> LAccesos =>   LAccesos [ Exp ]<br/>
+                    |   LAccesos .id<br/>
+                    |   .id<br/>
+                    |   [Exp]<br/>
+                    |    </td> <td> <p> Se crea una lista con los accesos, o si no viene nada, se sube None </p> </td>
+        </tr>
+
+        <tr> 
+        <td> <p>EXP  =>  String <br/> </p></td> 
+        <td><p>
+        t[0]  = ValorString(t[1]) </p></td> 
+        </tr><tr> <td colspan=2  class="et" > ASIGNACION:   </td> </tr>
+        <tr> 
+        <td> <p>Asignacion => id LAccesos= expresion   </p></td> 
+        <td><p>  
+        t[0] = Asignacion(t[1],t[2],t[3])</p></td> 
+        </tr>
+        <tr>
+            <td> LAccesos =>   LAccesos [ Exp ]<br/>
+                    |   LAccesos .id<br/>
+                    |   .id<br/>
+                    |   [Exp]<br/>
+                    |    </td> <td> <p> Se crea una lista con los accesos, o si no viene nada, se sube None </p> </td>
+        </tr>
+
+        <tr> 
+        <td> <p>EXP  =>  String <br/> </p></td> 
+        <td><p>
+        t[0]  = ValorString(t[1]) </p></td> 
+        </tr><tr> <td colspan=2  class="et" > ASIGNACION:   </td> </tr>
+        <tr> 
+        <td> <p>Asignacion => id LAccesos= expresion   </p></td> 
+        <td><p>  
+        t[0] = Asignacion(t[1],t[2],t[3])</p></td> 
+        </tr>
+        <tr>
+            <td> LAccesos =>   LAccesos [ Exp ]<br/>
+                    |   LAccesos .id<br/>
+                    |   .id<br/>
+                    |   [Exp]<br/>
+                    |    </td> <td> <p> Se crea una lista con los accesos, o si no viene nada, se sube None </p> </td>
+        </tr>
+
+        <tr> 
+        <td> <p>EXP  =>  entero <br/> </p></td> 
+        <td><p>
+        t[0]  = ValorEntero(t[1]) </p></td> 
+        </tr><tr> <td colspan=2  class="et" > ASIGNACION:   </td> </tr>
+        <tr> 
+        <td> <p>Asignacion => id LAccesos= expresion   </p></td> 
+        <td><p>  
+        t[0] = Asignacion(t[1],t[2],t[3])</p></td> 
+        </tr>
+        <tr>
+            <td> LAccesos =>   LAccesos [ Exp ]<br/>
+                    |   LAccesos .id<br/>
+                    |   .id<br/>
+                    |   [Exp]<br/>
+                    |    </td> <td> <p> Se crea una lista con los accesos, o si no viene nada, se sube None </p> </td>
+        </tr>
+
+        <tr> 
+        <td> <p>EXP  =>  entero <br/> </p></td> 
+        <td><p>
+        t[0]  = ValorEntero(t[1]) </p></td> 
+        </tr><tr> <td colspan=2  class="et" > ASIGNACION:   </td> </tr>
+        <tr> 
+        <td> <p>Asignacion => id LAccesos= expresion   </p></td> 
+        <td><p>  
+        t[0] = Asignacion(t[1],t[2],t[3])</p></td> 
+        </tr>
+        <tr>
+            <td> LAccesos =>   LAccesos [ Exp ]<br/>
+                    |   LAccesos .id<br/>
+                    |   .id<br/>
+                    |   [Exp]<br/>
+                    |    </td> <td> <p> Se crea una lista con los accesos, o si no viene nada, se sube None </p> </td>
+        </tr>
+
+        <tr> 
+        <td> <p>EXP  =>  String <br/> </p></td> 
+        <td><p>
+        t[0]  = ValorString(t[1]) </p></td> 
+        </tr><tr> <td colspan=2  class="et" > ASIGNACION:   </td> </tr>
+        <tr> 
+        <td> <p>Asignacion => id LAccesos= expresion   </p></td> 
+        <td><p>  
+        t[0] = Asignacion(t[1],t[2],t[3])</p></td> 
+        </tr>
+        <tr>
+            <td> LAccesos =>   LAccesos [ Exp ]<br/>
+                    |   LAccesos .id<br/>
+                    |   .id<br/>
+                    |   [Exp]<br/>
+                    |    </td> <td> <p> Se crea una lista con los accesos, o si no viene nada, se sube None </p> </td>
+        </tr>
+
+        <tr> 
+        <td> <p>EXP  =>  String <br/> </p></td> 
+        <td><p>
+        t[0]  = ValorString(t[1]) </p></td> 
+        </tr><tr> <td colspan=2  class="et" > ASIGNACION:   </td> </tr>
+        <tr> 
+        <td> <p>Asignacion => id LAccesos= expresion   </p></td> 
+        <td><p>  
+        t[0] = Asignacion(t[1],t[2],t[3])</p></td> 
+        </tr>
+        <tr>
+            <td> LAccesos =>   LAccesos [ Exp ]<br/>
+                    |   LAccesos .id<br/>
+                    |   .id<br/>
+                    |   [Exp]<br/>
+                    |    </td> <td> <p> Se crea una lista con los accesos, o si no viene nada, se sube None </p> </td>
+        </tr>
+
+        <tr> 
+        <td> <p>EXP  =>  String <br/> </p></td> 
+        <td><p>
+        t[0]  = ValorString(t[1]) </p></td> 
+        </tr><tr> <td colspan=2  class="et" > ASIGNACION:   </td> </tr>
+        <tr> 
+        <td> <p>Asignacion => id LAccesos= expresion   </p></td> 
+        <td><p>  
+        t[0] = Asignacion(t[1],t[2],t[3])</p></td> 
+        </tr>
+        <tr>
+            <td> LAccesos =>   LAccesos [ Exp ]<br/>
+                    |   LAccesos .id<br/>
+                    |   .id<br/>
+                    |   [Exp]<br/>
+                    |    </td> <td> <p> Se crea una lista con los accesos, o si no viene nada, se sube None </p> </td>
+        </tr>
+
+        <tr> 
+        <td> <p>EXP  =>  entero <br/> </p></td> 
+        <td><p>
+        t[0]  = ValorEntero(t[1]) </p></td> 
+        </tr><tr> <td colspan=2  class="et" > ASIGNACION:   </td> </tr>
+        <tr> 
+        <td> <p>Asignacion => id LAccesos= expresion   </p></td> 
+        <td><p>  
+        t[0] = Asignacion(t[1],t[2],t[3])</p></td> 
+        </tr>
+        <tr>
+            <td> LAccesos =>   LAccesos [ Exp ]<br/>
+                    |   LAccesos .id<br/>
+                    |   .id<br/>
+                    |   [Exp]<br/>
+                    |    </td> <td> <p> Se crea una lista con los accesos, o si no viene nada, se sube None </p> </td>
+        </tr>
+
+        <tr> 
+        <td> <p>EXP  =>  entero <br/> </p></td> 
+        <td><p>
+        t[0]  = ValorEntero(t[1]) </p></td> 
+        </tr><tr> <td colspan=2  class="et" > ASIGNACION:   </td> </tr>
+        <tr> 
+        <td> <p>Asignacion => id LAccesos= expresion   </p></td> 
+        <td><p>  
+        t[0] = Asignacion(t[1],t[2],t[3])</p></td> 
+        </tr>
+        <tr>
+            <td> LAccesos =>   LAccesos [ Exp ]<br/>
+                    |   LAccesos .id<br/>
+                    |   .id<br/>
+                    |   [Exp]<br/>
+                    |    </td> <td> <p> Se crea una lista con los accesos, o si no viene nada, se sube None </p> </td>
+        </tr>
+
+        <tr> 
+        <td> <p>EXP  =>  String <br/> </p></td> 
+        <td><p>
+        t[0]  = ValorString(t[1]) </p></td> 
+        </tr><tr> <td colspan=2  class="et" > ASIGNACION:   </td> </tr>
+        <tr> 
+        <td> <p>Asignacion => id LAccesos= expresion   </p></td> 
+        <td><p>  
+        t[0] = Asignacion(t[1],t[2],t[3])</p></td> 
+        </tr>
+        <tr>
+            <td> LAccesos =>   LAccesos [ Exp ]<br/>
+                    |   LAccesos .id<br/>
+                    |   .id<br/>
+                    |   [Exp]<br/>
+                    |    </td> <td> <p> Se crea una lista con los accesos, o si no viene nada, se sube None </p> </td>
+        </tr>
+
+        <tr> 
+        <td> <p>EXP  =>  String <br/> </p></td> 
+        <td><p>
+        t[0]  = ValorString(t[1]) </p></td> 
+        </tr><tr> <td colspan=2  class="et" > ASIGNACION:   </td> </tr>
+        <tr> 
+        <td> <p>Asignacion => id LAccesos= expresion   </p></td> 
+        <td><p>  
+        t[0] = Asignacion(t[1],t[2],t[3])</p></td> 
+        </tr>
+        <tr>
+            <td> LAccesos =>   LAccesos [ Exp ]<br/>
+                    |   LAccesos .id<br/>
+                    |   .id<br/>
+                    |   [Exp]<br/>
+                    |    </td> <td> <p> Se crea una lista con los accesos, o si no viene nada, se sube None </p> </td>
+        </tr>
+
+        <tr> 
+        <td> <p>EXP  =>  String <br/> </p></td> 
+        <td><p>
+        t[0]  = ValorString(t[1]) </p></td> 
+        </tr><tr> <td colspan=2  class="et" > ASIGNACION:   </td> </tr>
+        <tr> 
+        <td> <p>Asignacion => id LAccesos= expresion   </p></td> 
+        <td><p>  
+        t[0] = Asignacion(t[1],t[2],t[3])</p></td> 
+        </tr>
+        <tr>
+            <td> LAccesos =>   LAccesos [ Exp ]<br/>
+                    |   LAccesos .id<br/>
+                    |   .id<br/>
+                    |   [Exp]<br/>
+                    |    </td> <td> <p> Se crea una lista con los accesos, o si no viene nada, se sube None </p> </td>
+        </tr>
+
+        <tr> 
+        <td> <p>EXP  =>  entero <br/> </p></td> 
+        <td><p>
+        t[0]  = ValorEntero(t[1]) </p></td> 
+        </tr><tr> <td colspan=2  class="et" > ASIGNACION:   </td> </tr>
+        <tr> 
+        <td> <p>Asignacion => id LAccesos= expresion   </p></td> 
+        <td><p>  
+        t[0] = Asignacion(t[1],t[2],t[3])</p></td> 
+        </tr>
+        <tr>
+            <td> LAccesos =>   LAccesos [ Exp ]<br/>
+                    |   LAccesos .id<br/>
+                    |   .id<br/>
+                    |   [Exp]<br/>
+                    |    </td> <td> <p> Se crea una lista con los accesos, o si no viene nada, se sube None </p> </td>
+        </tr>
+
+        <tr> 
+        <td> <p>EXP  =>  entero <br/> </p></td> 
+        <td><p>
+        t[0]  = ValorEntero(t[1]) </p></td> 
+        </tr><tr> <td colspan=2  class="et" > ASIGNACION:   </td> </tr>
+        <tr> 
+        <td> <p>Asignacion => id LAccesos= expresion   </p></td> 
+        <td><p>  
+        t[0] = Asignacion(t[1],t[2],t[3])</p></td> 
+        </tr>
+        <tr>
+            <td> LAccesos =>   LAccesos [ Exp ]<br/>
+                    |   LAccesos .id<br/>
+                    |   .id<br/>
+                    |   [Exp]<br/>
+                    |    </td> <td> <p> Se crea una lista con los accesos, o si no viene nada, se sube None </p> </td>
+        </tr>
+
+        <tr> 
+        <td> <p>EXP  =>  String <br/> </p></td> 
+        <td><p>
+        t[0]  = ValorString(t[1]) </p></td> 
+        </tr><tr> <td colspan=2  class="et" > ASIGNACION:   </td> </tr>
+        <tr> 
+        <td> <p>Asignacion => id LAccesos= expresion   </p></td> 
+        <td><p>  
+        t[0] = Asignacion(t[1],t[2],t[3])</p></td> 
+        </tr>
+        <tr>
+            <td> LAccesos =>   LAccesos [ Exp ]<br/>
+                    |   LAccesos .id<br/>
+                    |   .id<br/>
+                    |   [Exp]<br/>
+                    |    </td> <td> <p> Se crea una lista con los accesos, o si no viene nada, se sube None </p> </td>
+        </tr>
+
+        <tr> 
+        <td> <p>EXP  =>  String <br/> </p></td> 
+        <td><p>
+        t[0]  = ValorString(t[1]) </p></td> 
+        </tr><tr> <td colspan=2  class="et" > ASIGNACION:   </td> </tr>
+        <tr> 
+        <td> <p>Asignacion => id LAccesos= expresion   </p></td> 
+        <td><p>  
+        t[0] = Asignacion(t[1],t[2],t[3])</p></td> 
+        </tr>
+        <tr>
+            <td> LAccesos =>   LAccesos [ Exp ]<br/>
+                    |   LAccesos .id<br/>
+                    |   .id<br/>
+                    |   [Exp]<br/>
+                    |    </td> <td> <p> Se crea una lista con los accesos, o si no viene nada, se sube None </p> </td>
+        </tr>
+
+        <tr> 
+        <td> <p>EXP  =>  String <br/> </p></td> 
+        <td><p>
+        t[0]  = ValorString(t[1]) </p></td> 
+        </tr><tr> <td colspan=2  class="et" > ASIGNACION:   </td> </tr>
+        <tr> 
+        <td> <p>Asignacion => id LAccesos= expresion   </p></td> 
+        <td><p>  
+        t[0] = Asignacion(t[1],t[2],t[3])</p></td> 
+        </tr>
+        <tr>
+            <td> LAccesos =>   LAccesos [ Exp ]<br/>
+                    |   LAccesos .id<br/>
+                    |   .id<br/>
+                    |   [Exp]<br/>
+                    |    </td> <td> <p> Se crea una lista con los accesos, o si no viene nada, se sube None </p> </td>
+        </tr>
+
+        <tr> 
+        <td> <p>EXP  =>  entero <br/> </p></td> 
+        <td><p>
+        t[0]  = ValorEntero(t[1]) </p></td> 
+        </tr><tr> <td colspan=2  class="et" > ASIGNACION:   </td> </tr>
+        <tr> 
+        <td> <p>Asignacion => id LAccesos= expresion   </p></td> 
+        <td><p>  
+        t[0] = Asignacion(t[1],t[2],t[3])</p></td> 
+        </tr>
+        <tr>
+            <td> LAccesos =>   LAccesos [ Exp ]<br/>
+                    |   LAccesos .id<br/>
+                    |   .id<br/>
+                    |   [Exp]<br/>
+                    |    </td> <td> <p> Se crea una lista con los accesos, o si no viene nada, se sube None </p> </td>
+        </tr>
+
+        <tr> 
+        <td> <p>EXP  =>  entero <br/> </p></td> 
+        <td><p>
+        t[0]  = ValorEntero(t[1]) </p></td> 
+        </tr><tr> <td colspan=2  class="et" > FOR:   </td> </tr>
+        <tr> 
+        <td> <p>forr => forr ( asig|declaracion ; exp ; asig) { LInst }  </p></td> 
+        <td><p>  
+        t[0] = For(t[1],t[2],t[3])</p></td> 
+        </tr>
+        
+<tr> <td colspan=2  class="et" > Printf:   </td> </tr>
+        <tr> 
+        <td> <p>printt => printf ( string LEXP2) { LInst }  </p></td> 
+        <td><p>  
+        t[0] = printf(t[1],t[2])</p></td> 
+        </tr>  
+        <tr> 
+        <td> <p>LEXP2 => Lexp2 , exp <br/> | exp <br/>|   </p></td> 
+        <td><p>  
+        Se sube una lista de expresiones si es que vienen, si no se sube None</p></td> 
+        </tr>
+        
+<tr> <td colspan=2  class="et" > DECLARACION:   </td> </tr>
+        <tr> 
+        <td> <p>Asignacion => TIPO id LAccesos= expresion   </p></td> 
+        <td><p>  
+        t[0] = Asignacion(t[1],t[2],t[3])</p></td> 
+        </tr>
+        <tr>
+            <td> LAccesos =>   LAccesos [ Exp ]<br/>
+                    |   LAccesos .id<br/>
+                    |   .id<br/>
+                    |   [Exp]<br/>
+                    |    </td> <td> <p> Se crea una lista con los accesos, o si no viene nada, se sube None </p> </td>
+        </tr>
+<tr> <td colspan=2  class="et" > FOR:   </td> </tr>
+        <tr> 
+        <td> <p>forr => forr ( asig|declaracion ; exp ; asig) { LInst }  </p></td> 
+        <td><p>  
+        t[0] = For(t[1],t[2],t[3])</p></td> 
+        </tr>
+        
+<tr> <td colspan=2  class="et" > Break:   </td> </tr>
+        <tr> 
+        <td> <p>inst => break   </p></td> 
+        <td><p>  
+        t[0] = Break(t[1] )</p></td> 
+        </tr>
+        
+</body></html>

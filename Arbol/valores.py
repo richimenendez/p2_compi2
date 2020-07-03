@@ -34,10 +34,23 @@ class ValorEntero():
     def ast(self):
         node = str(getHash(self))
         v = "n"+node+"\n n"+node+"[label = \" Entero : "+str(self.valor)+"\"]"
+        return v    
+
+    def gda(self,nodo):
+        node = str(nodo) + str(getHash(self.valor))
+        v = "n"+node+"\n n"+node+"[label = \" Entero : "+str(self.valor)+"\"]"
         return v
 
-    def gramAsc(self):
-        pass 
+
+
+    def grammar(self):
+        v =('''
+        <tr> 
+        <td> <p>EXP  =>  entero <br/> </p></td> 
+        <td><p>
+        t[0]  = ValorEntero(t[1]) </p></td> 
+        </tr>''' )
+        return v
 
 
 # -------------------------------------------------- NODO DOBLE  ---------------------------------------------------------------------
@@ -57,8 +70,20 @@ class ValorDoble():
         v = "n"+node+"\n n"+node+"[label = \" Doble : "+str(self.valor)+"\"]"
         return v
 
-    def gramAsc(self):
-        pass 
+    def gda(self,nodo):
+        node = str(nodo) + str(getHash(self.valor))
+        v = "n"+node+"\n n"+node+"[label = \" Doble : "+str(self.valor)+"\"]"
+        return v
+
+    def grammar(self):
+        v =('''
+        <tr> 
+        <td> <p>EXP  =>  double <br/> </p></td> 
+        <td><p>
+        t[0]  = ValorDouble(t[1]) </p></td> 
+        </tr>''' )
+        return v
+
 
 
 # -------------------------------------------------- NODO DOBLE  ---------------------------------------------------------------------
@@ -77,8 +102,20 @@ class ValorString():
         v = "n"+node+"\n n"+node+"[label = \" STRING : "+str(self.valor).replace("\"","")+"\"]"
         return v
 
-    def gramAsc(self):
-        pass 
+    def gda(self,nodo):
+        node = str(nodo) + str(getHash(self.valor))
+        v = "n"+node+"\n n"+node+"[label = \" String : "+str(self.valor)+"\"]"
+        return v
+ 
+
+    def grammar(self):
+        v =('''
+        <tr> 
+        <td> <p>EXP  =>  String <br/> </p></td> 
+        <td><p>
+        t[0]  = ValorString(t[1]) </p></td> 
+        </tr>''' )
+        return v
 
 
 # -------------------------------------------------- NODO Float  ---------------------------------------------------------------------
@@ -97,8 +134,20 @@ class ValorFloat():
         v = "n"+node+"\n n"+node+"[label = \" Float : "+str(self.valor)+"\"]"
         return v
 
-    def gramAsc(self):
-        pass 
+    def gda(self,nodo):
+        node = str(nodo) + str(getHash(self.valor))
+        v = "n"+node+"\n n"+node+"[label = \" Float : "+str(self.valor)+"\"]"
+        return v
+
+
+    def grammar(self):
+        v =('''
+        <tr> 
+        <td> <p>EXP  =>  float <br/> </p></td> 
+        <td><p>
+        t[0]  = valorFloat(t[1]) </p></td> 
+        </tr>''' )
+        return v
 
 
 # -------------------------------------------------- NODO Varibvle   ---------------------------------------------------------------------
@@ -142,8 +191,21 @@ class ValorVariable():
         v = "n"+node+"\n n"+node+"[label = \" Variable : "+str(self.valor)+"\"]"
         return v
 
-    def gramAsc(self):
-        pass 
+    def gda(self,nodo):
+        node = str(nodo) + str(getHash(self.valor))
+        v = "n"+node+"\n n"+node+"[label = \" Variable : "+str(self.valor)+"\"]"
+        return v
+ 
+
+    def grammar(self):
+        v =('''
+        <tr> 
+        <td> <p>EXP  =>  id Lacs <br/> </p></td> 
+        <td><p>
+        t[0]  = ValorVariable(t[1],t[2]) </p></td> 
+        </tr>''' )
+        return v
+
 
 
 
@@ -164,8 +226,21 @@ class ValorArray2():
         v = "n"+node+"\n n"+node+"[label = \" [] : \"]"
         return v
 
-    def gramAsc(self):
-        pass 
+    def gda(self,nodo):
+        node = str(nodo) + str(getHash(self.valor))
+        v = "n"+node+"\n n"+node+"[label = \" []\"]"
+        return v
+ 
+
+    def grammar(self):
+        v =('''
+        <tr> 
+        <td> <p>EXP  =>  { Lexp } <br/> </p></td> 
+        <td><p>
+        t[0]  = ValorArray(t[1]) </p></td> 
+        </tr>''' )
+        return v
+
 
 
 # -------------------------------------------------- NODO ARRAY  ---------------------------------------------------------------------
@@ -184,8 +259,19 @@ class ValorArray():
         v = "n"+node+"\n n"+node+"[label = \" .X : \"]"
         return v
 
-    def gramAsc(self):
-        pass 
+    def gda(self,nodo):
+        node = str(nodo) + str(getHash(self.valor))
+        v = "n"+node+"\n n"+node+"[label = \" .X \"]"
+        return v
+
+    def grammar(self):
+        v =('''
+        <tr> 
+        <td> <p>EXP  =>  [exp] <br/> </p></td> 
+        <td><p>
+        t[0]  = ValorArray(t[1]) </p></td> 
+        </tr>''' )
+        return v
 
 
 # ------------------------
@@ -206,9 +292,21 @@ class ValorAcceso():
         node = str(getHash(self))
         v = "n"+node+"\n n"+node+"[label = \" Acceso : \"]"
         return v
+    def gda(self,nodo):
+        node = str(nodo) + str(getHash(self.valor))
+        v = "n"+node+"\n n"+node+"[label = \" Acceso :\"]"
+        return v
 
-    def gramAsc(self):
-        pass 
+
+
+    def grammar(self):
+        v =('''
+        <tr> 
+        <td> <p>EXP  =>  .id <br/> </p></td> 
+        <td><p>
+        t[0]  = Acceso(t[1]) </p></td> 
+        </tr>''' )
+        return v
 
 
 

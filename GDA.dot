@@ -1,0 +1,212 @@
+digraph {
+root[label="root"]
+ error[label="Error"]
+
+root ->n2143575385
+ n2143575385[label=" Struct "]
+
+root ->n3904178
+n3904178[label="Main"]
+
+n3904178 -> n2143576225
+ n2143576225[label=" Declaracion  : directorio"]
+n2143576225-> n21435762250
+ n21435762250[label = " Entero : 0"]
+n3904178 -> n2143576192
+ n2143576192[label=" Asignacion  : directorio"]
+n2143576192-> n21435761921465907327
+ n21435761921465907327[label = " String : "Luis""]
+n3904178 -> n3907470
+ n3907470[label=" Asignacion  : directorio"]
+n3907470-> n3907470929470868
+ n3907470929470868[label = " String : "Espino""]
+n3904178 -> n3907485
+ n3907485[label=" Asignacion  : directorio"]
+n3907485-> n39074851420378152
+ n39074851420378152[label = " String : 'm'"]
+n3904178 -> n3907500
+ n3907500[label=" Asignacion  : directorio"]
+n3907500-> n390750054682145
+ n390750054682145[label = " Entero : 54682145"]
+n3904178 -> n3907515
+ n3907515[label=" Asignacion  : directorio"]
+n3907515-> n390751540
+ n390751540[label = " Entero : 40"]
+n3904178 -> n3907530
+ n3907530[label=" Asignacion  : directorio"]
+n3907530-> n39075301241428001
+ n39075301241428001[label = " String : "Juan""]
+n3904178 -> n3907545
+ n3907545[label=" Asignacion  : directorio"]
+n3907545-> n3907545217613337
+ n3907545217613337[label = " String : "Maeda""]
+n3904178 -> n3907560
+ n3907560[label=" Asignacion  : directorio"]
+n3907560-> n39075601420378152
+ n39075601420378152[label = " String : 'm'"]
+n3904178 -> n3907575
+ n3907575[label=" Asignacion  : directorio"]
+n3907575-> n390757534586245
+ n390757534586245[label = " Entero : 34586245"]
+n3904178 -> n2143576078
+ n2143576078[label=" Asignacion  : directorio"]
+n2143576078-> n214357607824
+ n214357607824[label = " Entero : 24"]
+n3904178 -> n2143576571
+ n2143576571[label=" Asignacion  : directorio"]
+n2143576571-> n21435765711056781333
+ n21435765711056781333[label = " String : "Pavel""]
+n3904178 -> n2143576538
+ n2143576538[label=" Asignacion  : directorio"]
+n2143576538-> n2143576538359671805
+ n2143576538359671805[label = " String : "Vasquez""]
+n3904178 -> n2143576523
+ n2143576523[label=" Asignacion  : directorio"]
+n2143576523-> n21435765231420378152
+ n21435765231420378152[label = " String : 'm'"]
+n3904178 -> n2143576508
+ n2143576508[label=" Asignacion  : directorio"]
+n2143576508-> n214357650895862451
+ n214357650895862451[label = " Entero : 95862451"]
+n3904178 -> n2143576493
+ n2143576493[label=" Asignacion  : directorio"]
+n2143576493-> n214357649323
+ n214357649323[label = " Entero : 23"]
+n3904178 -> n2143576478
+ n2143576478[label=" Asignacion  : directorio"]
+n2143576478-> n21435764781300133312
+ n21435764781300133312[label = " String : "Maria""]
+n3904178 -> n2143576463
+ n2143576463[label=" Asignacion  : directorio"]
+n2143576463-> n2143576463301481848
+ n2143576463301481848[label = " String : "Ramirez""]
+n3904178 -> n2143576448
+ n2143576448[label=" Asignacion  : directorio"]
+n2143576448-> n214357644828201303
+ n214357644828201303[label = " String : 'f'"]
+n3904178 -> n2143576433
+ n2143576433[label=" Asignacion  : directorio"]
+n2143576433-> n214357643356145233
+ n214357643356145233[label = " Entero : 56145233"]
+n3904178 -> n2143576418
+ n2143576418[label=" Asignacion  : directorio"]
+n2143576418-> n214357641830
+ n214357641830[label = " Entero : 30"]
+n3904178 -> n2143576403
+ n2143576403[label=" Asignacion  : directorio"]
+n2143576403-> n21435764031182842895
+ n21435764031182842895[label = " String : "Pablo""]
+n3904178 -> n2143576388
+ n2143576388[label=" Asignacion  : directorio"]
+n2143576388-> n21435763881512993346
+ n21435763881512993346[label = " String : "Escobar""]
+n3904178 -> n2143576373
+ n2143576373[label=" Asignacion  : directorio"]
+n2143576373-> n21435763731420378152
+ n21435763731420378152[label = " String : 'm'"]
+n3904178 -> n2143576358
+ n2143576358[label=" Asignacion  : directorio"]
+n2143576358-> n214357635885462592
+ n214357635885462592[label = " Entero : 85462592"]
+n3904178 -> n2143576343
+ n2143576343[label=" Asignacion  : directorio"]
+n2143576343-> n214357634360
+ n214357634360[label = " Entero : 60"]
+n3904178 -> n3904097
+ n3904097[label=" FOR  : "]
+n3904097-> n2143576337
+ n2143576337[label=" Declaracion  : i"]
+n2143576337-> n21435763370
+ n21435763370[label = " Entero : 0"]
+n3904097->n2143576349
+ n2143576349[label=" Exp  : Mayor (<)"]
+n2143576349-> n3904097127954792
+ n3904097127954792[label = " Variable : i"]
+ n2143576349 -> n39040975
+ n39040975[label = " Entero : 5"]
+n3904097->n3907091
+ n3907091[label=" Incremento (++)  : i"]
+
+n3904097->nb3904097
+nb3904097[label="Body"]
+
+nb3904097->n3904028
+ n3904028[label=" Printf  :Datos del contacto numero :\n "]
+n3904028->n2143579610
+ n2143579610[label=" Exp  : +"]
+n2143579610-> n3904028127954792
+ n3904028127954792[label = " Variable : i"]
+ n2143579610 -> n39040281
+ n39040281[label = " Entero : 1"]
+nb3904097->n2143579622
+ n2143579622[label=" Printf  :\tNombre: \n "]
+n2143579622->n2143579622643103810
+ n2143579622643103810[label = " Variable : directorio"]
+nb3904097->n3904025
+ n3904025[label=" Printf  :\tApellido: \n "]
+n3904025->n3904025643103810
+ n3904025643103810[label = " Variable : directorio"]
+nb3904097->n2143579625
+ n2143579625[label=" Printf  :\tSexo: \n "]
+n2143579625->n2143579625643103810
+ n2143579625643103810[label = " Variable : directorio"]
+nb3904097->n2143579628
+ n2143579628[label=" Printf  :\tTelefono: \n "]
+n2143579628->n2143579628643103810
+ n2143579628643103810[label = " Variable : directorio"]
+nb3904097->n2143579631
+ n2143579631[label=" Printf  :\tEdad: \n "]
+n2143579631->n2143579631643103810
+ n2143579631643103810[label = " Variable : directorio"]
+n3904178 -> n3907316
+ n3907316[label=" Printf  :------------------------------\n "]
+n3904178 -> error
+
+n3904178 -> n2143579523
+ n2143579523[label=" FOR  : "]
+n2143579523-> n3907301
+ n3907301[label=" Declaracion  : i"]
+n3907301-> n39073010
+ n39073010[label = " Entero : 0"]
+n2143579523->n2143579646
+ n2143579646[label=" Exp  : Mayor (<)"]
+n2143579646-> n2143579523127954792
+ n2143579523127954792[label = " Variable : i"]
+ n2143579646 -> n21435795235
+ n21435795235[label = " Entero : 5"]
+n2143579523->n3904184
+ n3904184[label=" Incremento (++)  : i"]
+
+n2143579523->nb2143579523
+nb2143579523[label="Body"]
+
+nb2143579523->n3904187
+ n3904187[label=" FOR  : "]
+n3904187-> n2143579520
+ n2143579520[label=" Declaracion  : j"]
+n2143579520-> n21435795200
+ n21435795200[label = " Entero : 0"]
+n3904187->n2143579634
+ n2143579634[label=" Exp  : Mayor (<)"]
+n2143579634-> n3904187361697362
+ n3904187361697362[label = " Variable : j"]
+ n2143579634 -> n39041875
+ n39041875[label = " Entero : 5"]
+n3904187->n2143579469
+ n2143579469[label=" Incremento (++)  : j"]
+
+n3904187->nb3904187
+nb3904187[label="Body"]
+
+nb3904187->n2143579460
+ n2143579460[label=" Printf  :Posicion [][] = %d\n "]
+n2143579460->n2143579460127954792
+ n2143579460127954792[label = " Variable : i"]
+n2143579460->n2143579460361697362
+ n2143579460361697362[label = " Variable : j"]
+n2143579460->n21435794601598344059
+ n21435794601598344059[label = " Variable : matriz"]
+n3904178 -> n2143576331
+ n2143576331[label=" Return "]
+
+}

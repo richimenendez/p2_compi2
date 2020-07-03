@@ -247,8 +247,8 @@ def p_body2(t):
     t[0] = Metodo(t[2],None,t[7],str(t.lineno(1)))
 
 def p_body_str(t):
-    "body : struct ID IZQCOR linst DERCOR"
-    t[0] = t[4]
+    "body : struct ident IZQCOR linst DERCOR PCOMA"
+    t[0] = Struct(str(t.lineno(1)))
 
 def p_body_decl(t):
     "body : decla PCOMA"
@@ -302,19 +302,56 @@ def p_inst(t):      # INSTRUCCIÓNES
          | si
          | mientras
          | cual
-         | call
+         | call 
          | dow
+         | asg
          | prin
          | decla PCOMA
          | tag
          | gotot PCOMA
+         | brk PCOMA
+         | ret PCOMA
     '''
     t[0] = t[1]
+
+
+
+#- ------------------------------- asignacion sin valor
+def p_asg(t):
+    '''
+        asg : TYPE lids PCOMA
+    '''
+    t[0] = Declaracion2(t[2],str(t.lineno(1)))
+
+def p_lids(t):
+    '''
+    lids : lids COMA ident
+        | ident
+    '''
+    if(len(t)==2):
+        t[0] = []
+        t[0].append(t[1])
+    else:
+        t[0] = t[1]
+        t[0].append(t[2])
+
+
 
 def p_call(t):
     "call : ident IZQPAR plex DERPAR PCOMA "
     t[0] = Call(t[1],t[3],str(t.lineno(1)))
 
+
+def p_breik(t):
+    "brk : break"
+    t[0] = Break(str(t.lineno(1)))
+
+
+def p_ret(t):
+    '''ret : return exp
+            | return'''
+    t[0] = Retorno(str(t.lineno(1)))
+    
 
 def p_plex(t):
     '''
@@ -439,7 +476,7 @@ def p_for2(t):
 
 def p_switch(t):  # INSTRUCCIÓN -----> SWITCH
     "cual : switch IZQPAR exp DERPAR IZQCOR lcase def DERCOR "
-
+    t[0] = Cual(str(t.lineno(1)))
 def p_lcase(t):
     '''
     lcase : lcase caso
@@ -593,7 +630,7 @@ def p_ternario(t):
     '''
     exp : exp ASK exp DP exp
     '''
-    t[0] = Casteo(t[2],t[4])
+    t[0] = Ternario(t[1],t[3],t[5])
 
 def p_value_dou(t):
     '''
@@ -634,6 +671,7 @@ def p_type(t):
 def p_error(t): 
         #erroresSintacticos.append("Error Sintactico:  Token: "+str(t.value) + "   En Linea : " +str(t.lineno))
     try:
+        erroresSintacticos.append("ERROR SINTACTICO: El error es "+ str(t.value) + "  en la linea  "+ str(t.lineno))
         print("Sintax : El error es: "+t.value+" en la linea "+ t.lineno)
     except:
         print("ERROR CRITICO " + str(t))  
@@ -655,13 +693,16 @@ def ejecutar(v):
     arbol = parser.parse(v,tracking=True)
     cadena = ""
     for a in arbol:
-        c = a.ejecutar(ts,None)
-        if isinstance(a,Metodo): 
-            cadena+=c.cadena
-        if isinstance(a,Declaracion): 
-            cadena+=c.cadena
+        try:
+            c = a.ejecutar(ts,None)
+            if isinstance(a,Metodo): 
+                cadena+=c.cadena
+            if isinstance(a,Declaracion): 
+                cadena+=c.cadena
+        except Exception as e:
+            print("ERROR CORRIENDO UN NODO!!! "+ str(e))
     try:
-        reporteErrores([],[],ts.errorSemantico)
+        reporteErrores(erroresLexicos,erroresSintacticos,ts.errorSemantico)
     except Exception as e:
         print("Error Generando el Reporte:  "+ str(e))
     try:
@@ -669,9 +710,22 @@ def ejecutar(v):
     except Exception as e:
         print("Error Generando el Reporte:  "+ str(e))
     try:
+        reporteGDA(arbol)
+    except Exception as e:
+        print("Error Generando el Reporte:  "+ str(e))
+    try:
         reporteTS(ts.tsReport,ts.metodos)
     except Exception as e:
         print("Error Generando el Reporte:  "+ str(e))
+    try:
+        gramaticalASC(arbol)
+    except Exception as e:
+        print("Error Generando el Reporte:  "+ str(e))
+    try:
+        reporteOptimizacion(ts.optimizacion)
+    except Exception as e:
+        print("Error Generando el Reporte:  "+ str(e))
+
 
 
     return cadena

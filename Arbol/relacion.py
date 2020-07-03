@@ -32,10 +32,27 @@ class Mayor():
         except Exception as e:
             print("ERROR-ASTt: "+str(e))
             return "error\n"
+ 
+    def gda(self,nodo):
+        try:
+            node = str(getHash(self))
+            v = "n"+node+"\n n"+node+"[label=\" Exp  : Mayor (>)\"]\nn"+node+"-> "+self.v1.gda(nodo)+"\n n"+node+" -> "+self.v2.gda(nodo)
+            return v
+        
+        except Exception as e:
+            print("ERROR-GDA: "+str(e))
+            return "error\n"
 
-    def gramAsc(self):
-        pass 
 
+
+    def grammar(self):
+        v =('''
+        <tr> 
+        <td> <p>EXP  =>  E > E <br/> </p></td> 
+        <td><p> if(t[2]==">")<br>
+        t[0]  = May(t[1],t[3]) </p></td> 
+        </tr>'''+self.v1.grammar()+self.v2.grammar())
+        return v
 # -------------------------------------------------- Menor  ---------------------------------------------------------------------
 class Menor():
     def __init__(self,v1,v2):
@@ -67,9 +84,25 @@ class Menor():
         except Exception as e:
             print("ERROR-ASTu: "+str(e))
             return "error\n"
+    def gda(self,nodo):
+        try:
+            node = str(getHash(self))
+            v = "n"+node+"\n n"+node+"[label=\" Exp  : Mayor (<)\"]\nn"+node+"-> "+self.v1.gda(nodo)+"\n n"+node+" -> "+self.v2.gda(nodo)
+            return v
+        
+        except Exception as e:
+            print("ERROR-GDA: "+str(e))
+            return "error\n"
 
-    def gramAsc(self):
-        pass 
+
+    def grammar(self):
+        v =('''
+        <tr> 
+        <td> <p>EXP  =>  E < E <br/> </p></td> 
+        <td><p> if(t[2]=="<")<br>
+        t[0]  = Men(t[1],t[3]) </p></td> 
+        </tr>'''+self.v1.grammar()+self.v2.grammar())
+        return v
 
 # -------------------------------------------------- MayorQue  ---------------------------------------------------------------------
 class MayorQue():
@@ -103,8 +136,24 @@ class MayorQue():
             print("ERROR-ASTv: "+str(e))
             return "error\n"
 
-    def gramAsc(self):
-        pass 
+    def gda(self,nodo):
+        try:
+            node = str(getHash(self))
+            v = "n"+node+"\n n"+node+"[label=\" Exp  :  (>=)\"]\nn"+node+"-> "+self.v1.gda(nodo)+"\n n"+node+" -> "+self.v2.gda(nodo)
+            return v
+        
+        except Exception as e:
+            print("ERROR-GDA: "+str(e))
+            return "error\n"
+
+    def grammar(self):
+        v =('''
+        <tr> 
+        <td> <p>EXP  =>  E <= E <br/> </p></td> 
+        <td><p> if(t[2]=="<=")<br>
+        t[0]  = MeI(t[1],t[3]) </p></td> 
+        </tr>'''+self.v1.grammar()+self.v2.grammar())
+        return v
 
 # -------------------------------------------------- MenorQue  ---------------------------------------------------------------------
 class MenorQue():
@@ -137,9 +186,25 @@ class MenorQue():
         except Exception as e:
             print("ERROR-ASTw: "+str(e))
             return "error\n"
+    def gda(self,nodo):
+        try:
+            node = str(getHash(self))
+            v = "n"+node+"\n n"+node+"[label=\" Exp  :<=\"]\nn"+node+"-> "+self.v1.gda(nodo)+"\n n"+node+" -> "+self.v2.gda(nodo)
+            return v
+        
+        except Exception as e:
+            print("ERROR-GDA: "+str(e))
+            return "error\n"
 
-    def gramAsc(self):
-        pass 
+
+    def grammar(self):
+        v =('''
+        <tr> 
+        <td> <p>EXP  =>  E >= E <br/> </p></td> 
+        <td><p> if(t[2]==">=")<br>
+        t[0]  = MaI(t[1],t[3]) </p></td> 
+        </tr>'''+self.v1.grammar()+self.v2.grammar())
+        return v
 
 # -------------------------------------------------- Igual  ---------------------------------------------------------------------
 class Igual():
@@ -173,9 +238,25 @@ class Igual():
             print("ERROR-ASTx: "+str(e))
             return "error\n"
 
-    def gramAsc(self):
-        pass 
+    def gda(self,nodo):
+        try:
+            node = str(getHash(self))
+            v = "n"+node+"\n n"+node+"[label=\" Exp  :==\"]\nn"+node+"-> "+self.v1.gda(nodo)+"\n n"+node+" -> "+self.v2.gda(nodo)
+            return v
+        
+        except Exception as e:
+            print("ERROR-GDA: "+str(e))
+            return "error\n"
 
+
+    def grammar(self):
+        v =('''
+        <tr> 
+        <td> <p>EXP  =>  E == E <br/> </p></td> 
+        <td><p> if(t[2]=="==")<br>
+        t[0]  = Igual(t[1],t[3]) </p></td> 
+        </tr>'''+self.v1.grammar()+self.v2.grammar())
+        return v
 # -------------------------------------------------- Desigual  ---------------------------------------------------------------------
 class Desigual():
     def __init__(self,v1,v2):
@@ -208,5 +289,22 @@ class Desigual():
             print("ERROR-ASTy: "+str(e))
             return "error\n"
 
-    def gramAsc(self):
-        pass 
+    def gda(self,nodo):
+        try:
+            node = str(getHash(self))
+            v = "n"+node+"\n n"+node+"[label=\" Exp  : !=\"]\nn"+node+"-> "+self.v1.gda(nodo)+"\n n"+node+" -> "+self.v2.gda(nodo)
+            return v
+        
+        except Exception as e:
+            print("ERROR-GDA: "+str(e))
+            return "error\n"
+
+
+    def grammar(self):
+        v =('''
+        <tr> 
+        <td> <p>EXP  =>  E != E <br/> </p></td> 
+        <td><p> if(t[2]=="!=")<br>
+        t[0]  = Desigual(t[1],t[3]) </p></td> 
+        </tr>'''+self.v1.grammar()+self.v2.grammar())
+        return v

@@ -68,15 +68,29 @@ def reporteAST(root):
     except:
         print("No se pudo")
 
+def reporteGDA(root):
+    dot = "digraph {\nroot[label=\"root\"]\n error[label=\"Error\"]\n"
+    for x in root:
+        
+        dot += '\nroot ->'+ x.gda("")
+    dot += "\n}"
+    try:
+        contenido = dot
+        with open('GDA.dot','w') as rep:
+            rep.write(contenido)
+        os.system('dot "GDA.dot" -o "GDA.pdf" -Tpdf')
+    except:
+        print("No se pudo")
+
 def gramaticalASC(lista):
     html = '''
 	<h1>Reporte Gramatical: Gramatica Ascendente</h1>
 	<h3> Ricardo Menéndez - 201602916 </h3>
 <table width="1000" border="1" align="center">
     '''
-    for x,y in lista.items():
+    for x in lista:
         try:
-            html+= y.grammarASC()
+            html+= x.grammar()
         except Exception as e:
             print("Error generando linea de reporte gramatical  "+ str(e))
     html+="</body></html>"
@@ -123,3 +137,25 @@ def reporteTS(vars,metods):
     except Exception as e:
         print("No se pudo generar el reporte: " + str(e))
 
+
+def reporteOptimizacion(eL):
+    html = '''
+	<h1>Reporte de Optimizacion: </h1>
+	<h3> Ricardo Menéndez - 201602916 </h3>
+    <h4> Reglas APlicadas </h4>
+<table width="800" border="1" align="center">
+    '''
+    for x in eL:
+        try:
+            html+= '<tr><td> '+x+'</td></tr>'
+        except Exception as e:
+            print("Error generando linea de reporte gramatical  "+ str(e))
+    html+='''</table>'''
+   
+    html+="</body></html>"
+    try:
+        contenido = head + html
+        with open('reporte_Opt.html','w') as rep:
+            rep.write(contenido)
+    except Exception as e:
+        print("No se pudo generar el reporte: " + str(e))

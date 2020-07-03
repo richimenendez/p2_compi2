@@ -33,8 +33,25 @@ class Or():
             print("ERROR-ASTk: "+str(e))
             return "error\n"
 
-    def gramAsc(self):
-        pass 
+    def gda(self,nodo):
+        try:
+            node = str(getHash(self))
+            v = "n"+node+"\n n"+node+"[label=\" Exp  : ||\"]\nn"+node+"-> "+self.v1.gda(nodo)+"\n n"+node+" -> "+self.v2.gda(nodo)
+            return v
+        
+        except Exception as e:
+            print("ERROR-GDA: "+str(e))
+            return "error\n"
+
+
+    def grammar(self):
+        v =('''
+        <tr> 
+        <td> <p>EXP  =>  E || E <br/> </p></td> 
+        <td><p> if(t[2]=="||")<br>
+        t[0]  = Suma(t[1],t[3]) </p></td> 
+        </tr>'''+self.v1.grammar()+self.v2.grammar())
+        return v
 
 
 # -------------------------------------------------- AND  ---------------------------------------------------------------------
@@ -69,9 +86,25 @@ class And():
             print("ERROR-ASTl: "+str(e))
             return "error\n"
 
-    def gramAsc(self):
-        pass 
+    def gda(self,nodo):
+        try:
+            node = str(getHash(self))
+            v = "n"+node+"\n n"+node+"[label=\" Exp  : &&\"]\nn"+node+"-> "+self.v1.gda(nodo)+"\n n"+node+" -> "+self.v2.gda(nodo)
+            return v
+        
+        except Exception as e:
+            print("ERROR-GDA: "+str(e))
+            return "error\n"
 
+
+    def grammar(self):
+        v =('''
+        <tr> 
+        <td> <p>EXP  =>  E && E <br/> </p></td> 
+        <td><p> if(t[2]=="&&")<br>
+        t[0]  = Suma(t[1],t[3]) </p></td> 
+        </tr>'''+self.v1.grammar()+self.v2.grammar())
+        return v
 
 # -------------------------------------------------- BAND  ---------------------------------------------------------------------
 class BAnd():
@@ -98,15 +131,31 @@ class BAnd():
     def ast(self):
         try:
             node = str(getHash(self))
-            v = "n"+node+"\n n"+node+"[label=\" Exp  : And (&&)\"]\nn"+node+"-> "+self.v1.ast()+"\n n"+node+" -> "+self.v2.ast()
+            v = "n"+node+"\n n"+node+"[label=\" Exp  : And (&)\"]\nn"+node+"-> "+self.v1.ast()+"\n n"+node+" -> "+self.v2.ast()
             return v
         
         except Exception as e:
             print("ERROR-ASTm: "+str(e))
             return "error\n"
 
-    def gramAsc(self):
-        pass 
+    def gda(self,nodo):
+        try:
+            node = str(getHash(self))
+            v = "n"+node+"\n n"+node+"[label=\" Exp  : &\"]\nn"+node+"-> "+self.v1.gda(nodo)+"\n n"+node+" -> "+self.v2.gda(nodo)
+            return v
+        
+        except Exception as e:
+            print("ERROR-GDA: "+str(e))
+            return "error\n"
+
+    def grammar(self):
+        v =('''
+        <tr> 
+        <td> <p>EXP  =>  E & E <br/> </p></td> 
+        <td><p> if(t[2]=="&")<br>
+        t[0]  = Suma(t[1],t[3]) </p></td> 
+        </tr>'''+self.v1.grammar()+self.v2.grammar())
+        return v
 
 
 
@@ -143,9 +192,25 @@ class BOr():
             print("ERROR-ASTn: "+str(e))
             return "error\n"
 
-    def gramAsc(self):
-        pass 
 
+    def gda(self,nodo):
+        try:
+            node = str(getHash(self))
+            v = "n"+node+"\n n"+node+"[label=\" Exp  : |\"]\nn"+node+"-> "+self.v1.gda(nodo)+"\n n"+node+" -> "+self.v2.gda(nodo)
+            return v
+        
+        except Exception as e:
+            print("ERROR-GDA: "+str(e))
+            return "error\n"
+
+    def grammar(self):
+        v =('''
+        <tr> 
+        <td> <p>EXP  =>  E | E <br/> </p></td> 
+        <td><p> if(t[2]=="|")<br>
+        t[0]  = Suma(t[1],t[3]) </p></td> 
+        </tr>'''+self.v1.grammar()+self.v2.grammar())
+        return v
     
 # -------------------------------------------------- BOR  ---------------------------------------------------------------------
 class Xor():
@@ -179,10 +244,24 @@ class Xor():
             print("ERROR-ASTo: "+str(e))
             return "error\n"
 
-    def gramAsc(self):
-        pass 
+    def gda(self,nodo):
+        try:
+            node = str(getHash(self))
+            v = "n"+node+"\n n"+node+"[label=\" Exp  : ^\"]\nn"+node+"-> "+self.v1.gda(nodo)+"\n n"+node+" -> "+self.v2.gda(nodo)
+            return v
+        
+        except Exception as e:
+            print("ERROR-GDA: "+str(e))
+            return "error\n"
 
-
+    def grammar(self):
+        v =('''
+        <tr> 
+        <td> <p>EXP  =>  E ^ E <br/> </p></td> 
+        <td><p> if(t[2]=="^")<br>
+        t[0]  = Suma(t[1],t[3]) </p></td> 
+        </tr>'''+self.v1.grammar()+self.v2.grammar())
+        return v
 
 # -------------------------------------------------- Left  ---------------------------------------------------------------------
 class Left():
@@ -216,9 +295,25 @@ class Left():
             print("ERROR-ASTp: "+str(e))
             return "error\n"
 
-    def gramAsc(self):
-        pass 
 
+    def gda(self,nodo):
+        try:
+            node = str(getHash(self))
+            v = "n"+node+"\n n"+node+"[label=\" Exp  : <<\"]\nn"+node+"-> "+self.v1.gda(nodo)+"\n n"+node+" -> "+self.v2.gda(nodo)
+            return v
+        
+        except Exception as e:
+            print("ERROR-GDA: "+str(e))
+            return "error\n"
+
+    def grammar(self):
+        v =('''
+        <tr> 
+        <td> <p>EXP  =>  E << E <br/> </p></td> 
+        <td><p> if(t[2]=="<<")<br>
+        t[0]  = Suma(t[1],t[3]) </p></td> 
+        </tr>'''+self.v1.grammar()+self.v2.grammar())
+        return v
 
     
 
@@ -255,8 +350,25 @@ class Right():
             print("ERROR-ASTq: "+str(e))
             return "error\n"
 
-    def gramAsc(self):
-        pass 
+
+    def gda(self,nodo):
+        try:
+            node = str(getHash(self))
+            v = "n"+node+"\n n"+node+"[label=\" Exp  : >>\"]\nn"+node+"-> "+self.v1.gda(nodo)+"\n n"+node+" -> "+self.v2.gda(nodo)
+            return v
+        
+        except Exception as e:
+            print("ERROR-GDA: "+str(e))
+            return "error\n"
+
+    def grammar(self):
+        v =('''
+        <tr> 
+        <td> <p>EXP  =>  E >> E <br/> </p></td> 
+        <td><p> if(t[2]>>"+")<br>
+        t[0]  = Suma(t[1],t[3]) </p></td> 
+        </tr>'''+self.v1.grammar()+self.v2.grammar())
+        return v
 
 
 # -------------------------------------------------- Not  ---------------------------------------------------------------------
@@ -284,9 +396,25 @@ class Not():
             print("ERROR-ASTr: "+str(e))
             return "error\n"
 
-    def gramAsc(self):
-        pass 
 
+    def gda(self,nodo):
+        try:
+            node = str(getHash(self))
+            v = "n"+node+"\n n"+node+"[label=\" Exp  : !\"]\nn"+node+"-> "+self.v1.gda(nodo)
+            return v
+        
+        except Exception as e:
+            print("ERROR-GDA: "+str(e))
+            return "error\n"
+
+    def grammar(self):
+        v =('''
+        <tr> 
+        <td> <p>EXP  =>  ! E <br/> </p></td> 
+        <td><p> if(t[1]=="!")<br>
+        t[0]  = Suma(t[1]) </p></td> 
+        </tr>'''+self.v1.grammar() )
+        return v
 # -------------------------------------------------- BNot  ---------------------------------------------------------------------
 class BNot():
     def __init__(self,v1,v2):
@@ -311,9 +439,25 @@ class BNot():
         except Exception as e:
             print("ERROR-ASTs: "+str(e))
             return "error\n"
+    def gda(self,nodo):
+        try:
+            node = str(getHash(self))
+            v = "n"+node+"\n n"+node+"[label=\" Exp  : ~\"]\nn"+node+"-> "+self.v1.gda(nodo)
+            return v
+        
+        except Exception as e:
+            print("ERROR-GDA: "+str(e))
+            return "error\n"
 
-    def gramAsc(self):
-        pass 
 
+
+    def grammar(self):
+        v =('''
+        <tr> 
+        <td> <p>EXP  =>  ~ E <br/> </p></td> 
+        <td><p> if(t[1]=="~")<br>
+        t[0]  = Suma(t[1]) </p></td> 
+        </tr>'''+self.v1.grammar() )
+        return v
 
 

@@ -256,10 +256,18 @@ class Ui_MainWindow(object):
         self.actionAST2.setObjectName("actionAST2")
         self.actionGramatical2 = QtWidgets.QAction(MainWindow)
         self.actionGramatical2.setObjectName("actionGramatical2")
+        self.actionOpt2 = QtWidgets.QAction(MainWindow)
+        self.actionOpt2.setObjectName("actionOpt2")
+        self.actionGDA = QtWidgets.QAction(MainWindow)
+        self.actionGDA.setObjectName("actionGDA")
 
 
         self.actionCompilarC = QtWidgets.QAction(MainWindow)
         self.actionCompilarC.setObjectName("CompilarC")
+        self.actionCargarC = QtWidgets.QAction(MainWindow)
+        self.actionCargarC.setObjectName("CargarC")
+        self.actionCargarA = QtWidgets.QAction(MainWindow)
+        self.actionCargarA.setObjectName("CargarA")
 
 
         self.menuArchivo.addAction(self.actionNuevo)
@@ -278,12 +286,17 @@ class Ui_MainWindow(object):
         self.menuReportes.addAction(self.actionErrores)
         self.menuReportes.addAction(self.actionAST)
         self.menuReportes.addAction(self.actionGramatical)
+
         self.menuReportesC.addAction(self.actionTabla_de_Simbolos2)
         self.menuReportesC.addAction(self.actionErrores2)
         self.menuReportesC.addAction(self.actionAST2)
         self.menuReportesC.addAction(self.actionGramatical2)
+        self.menuReportesC.addAction(self.actionOpt2)
+        self.menuReportesC.addAction(self.actionGDA)
 
         self.menuCMinor.addAction(self.actionCompilarC)
+        self.menuCMinor.addAction(self.actionCargarC)
+        self.menuCMinor.addAction(self.actionCargarA)
 
         self.menuAyuda.addAction(self.actionAyuda)
         self.menuAyuda.addAction(self.actionAcercaDe)
@@ -355,8 +368,16 @@ class Ui_MainWindow(object):
         self.actionAST.triggered.connect(self.generarAST)
 
         self.actionCompilarC.triggered.connect(self.compilar)
+        self.actionCargarA.triggered.connect(self.setAugus) 
+        self.actionCargarC.triggered.connect(self.setCMinor)
+
 
         self.actionErrores2.triggered.connect(self.generarRErroresC)
+        self.actionAST2.triggered.connect(self.generarASTC)
+        self.actionGramatical2.triggered.connect(self.generarGramaticalC)
+        self.actionGDA.triggered.connect(self.generarGDAC)
+        self.actionOpt2.triggered.connect(self.generarOptC)
+        self.actionTabla_de_Simbolos2.triggered.connect(self.generarRTSC)
 
         self.actionAcercaDe.triggered.connect(self.acercade)
         self.actionAyuda.triggered.connect(self.ayuda)
@@ -424,6 +445,24 @@ class Ui_MainWindow(object):
 
     def generarRErroresC(self):
         webbrowser.open_new_tab('reporte_ErroresC.html')
+
+    def generarRTSC(self):
+        webbrowser.open_new_tab('reporte_TSC.html')
+
+    def generarASTC(self):
+        webbrowser.open_new_tab('ASTC.pdf')
+
+    def generarGramaticalC(self):
+        webbrowser.open_new_tab('reporte_GAscC.html')
+
+    def generarGDAC(self):
+        webbrowser.open_new_tab('GDA.pdf')
+
+    def generarOptC(self):
+        webbrowser.open_new_tab('reporte_Opt.html')
+
+
+
 
     def generarRGramatical(self):
         listado = self.listado_gramatical 
@@ -670,14 +709,16 @@ class Ui_MainWindow(object):
         global codigoAug 
         codigoAug = ejecutarC(self.editor.text())
         global codigoC   
-        codigoC   = ""
+        codigoC   = self.editor.text()
         self.ascendente()
-        tk2 = tk.Tk() # Create the object
-        tk2.geometry('1280x720')
-        text = tk.Text(tk2,height=720, width=1280)
-        text.pack()
-        text.insert(tk.END,codigoAug)
-        tk.mainloop()
+
+    def setAugus(self):
+        global codigoAug
+        self.editor.setText(codigoAug)
+
+    def setCMinor(self):
+        global codigoC
+        self.editor.setText(codigoC)
 
     def exit(self):
         sys.exit()
@@ -760,9 +801,15 @@ class Ui_MainWindow(object):
         self.actionErrores2.setText(_translate("MainWindow", "Errores"))
         self.actionAST2.setText(_translate("MainWindow", "AST"))
         self.actionGramatical2.setText(_translate("MainWindow", "Gramatical"))
+        self.actionOpt2.setText(_translate("MainWindow", "Optimizacion"))
+        self.actionGDA.setText(_translate("MainWindow", "GDA"))
 
         self.actionAyuda.setText(_translate("MainWindow", "Ayuda"))
         self.actionAcercaDe.setText(_translate("MainWindow", "Acerca de"))
+
+        self.actionCompilarC.setText(_translate("MainWindow", "Compilar CMinor"))
+        self.actionCargarC.setText(_translate("MainWindow", "Cargar Codigo CMinor"))
+        self.actionCargarA.setText(_translate("MainWindow", "Cargar Codigo Augus"))
 
 interfaz    = None
 codigoAug   = ""
