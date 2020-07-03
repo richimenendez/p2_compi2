@@ -10,18 +10,27 @@ class Simbolo():
         self.linea = linea
         self.temp  = temp
 
-class Metodo():
-    def __init__(self, name, instr):
-        self.nombre = name 
-        self.inst   = instr 
+class Metodos():
+    def __init__(self, name, params, body , linea):
+        self.nombre = name
+        self.params = params 
+        self.body   = body
         self. linea = linea 
+
+class Extra():
+    def __init__(self, retorno, ciclo, ex):
+        self.retorno = retorno 
+        self.ciclo = ciclo 
+        self.ex = ex
 
 class TablaSimbolos():
     def __init__(self):
         self.contadorTemp = 0
+        self.contadorParam = 0
         self.contadorTag = 0 
         self.errorSemantico = []
         self.mensajes = []
+        self.tsReport = []
         self.variables = []
         self.variables.append(dict())
         self.metodos = {}
@@ -35,6 +44,9 @@ class TablaSimbolos():
 
     def addVariable(self,name, val, temp, linea):
         self.variables[-1][name] = Simbolo(name,val,temp,linea)
+
+    def addVariable2(self,name, val, temp, linea):
+        self.tsReport.append(Simbolo(name,val,temp,linea))
 
     def generarTemporal(self):
         self.contadorTemp +=1
@@ -50,8 +62,12 @@ class TablaSimbolos():
     def getLastEtiqueta(self):
         return "tag"+str(self.contadorTag)
 
+    def generarParam(self):
+        self.contadorParam +=1
+        return "$a"+str(self.contadorParam)
+
     def addEntorno(self):
-        self.variables = self.variables.append(dict()) 
+        self.variables.append(dict()) 
 
     def popEntorno(self):
         self.variables.pop()

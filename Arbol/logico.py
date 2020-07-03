@@ -19,14 +19,19 @@ class Or():
             tipo = operarSuma(val1,val2)
             if(tipo==TIPO.ERROR):
                  return valorTemporal(TIPO_TEMP.ERROR, "TIPOS INCOMPATIBLES","",TIPO.ERROR,"","")
-            return valorTemporal(TIPO_TEMP.EXPRESION, "\n"+str(temp) +" = "+str(val1.temporal) + " || "+str(val2.temporal)+";", temp, tipo, tipo,str(val1.temporal)+",||,"+str(val2.temporal),"") 
+            return valorTemporal(TIPO_TEMP.EXPRESION,  val1.cadena+val2.cadena+"\n"+str(temp) +" = "+str(val1.temporal) + " || "+str(val2.temporal)+";", temp,  tipo,str(val1.temporal)+",||,"+str(val2.temporal),"") 
         except Exception as exp:
             return valorTemporal(TIPO_TEMP.ERROR, "No se pudo volver Entero" + str(exp),"", Valor(TIPO.ERROR,"No se pudo resolver el OR"),"","")
     
     def ast(self):
-        node = getHash(self)
-        v = "n"+node+"\n n"+node+"[label=\" Exp  : Or (||)\"]\nn"+node+"-> "+self.v1.ast()+"\n n"+node+" -> "+self.v2.ast()
-        return v
+        try:
+            node = str(getHash(self))
+            v = "n"+node+"\n n"+node+"[label=\" Exp  : Or (||)\"]\nn"+node+"-> "+self.v1.ast()+"\n n"+node+" -> "+self.v2.ast()
+            return v
+        
+        except Exception as e:
+            print("ERROR-ASTk: "+str(e))
+            return "error\n"
 
     def gramAsc(self):
         pass 
@@ -50,14 +55,19 @@ class And():
             tipo = operarSuma(val1,val2)
             if(tipo==TIPO.ERROR):
                  return valorTemporal(TIPO_TEMP.ERROR, "TIPOS INCOMPATIBLES","",TIPO.ERROR,"","")
-            return valorTemporal(TIPO_TEMP.EXPRESION, "\n"+str(temp) +" = "+str(val1.temporal) + " && "+str(val2.temporal)+";", temp, tipo, tipo,str(val1.temporal)+",&&,"+str(val2.temporal),"") 
+            return valorTemporal(TIPO_TEMP.EXPRESION, val1.cadena+val2.cadena+ "\n"+str(temp) +" = "+str(val1.temporal) + " && "+str(val2.temporal)+";", temp,   tipo,str(val1.temporal)+",&&,"+str(val2.temporal),"" ) 
         except Exception as exp:
             return valorTemporal(TIPO_TEMP.ERROR, "No se pudo volver AND" + str(exp),"", Valor(TIPO.ERROR,"No se pudo resolver el AND"),"","")
     
     def ast(self):
-        node = getHash(self)
-        v = "n"+node+"\n n"+node+"[label=\" Exp  : And (&&)\"]\nn"+node+"-> "+self.v1.ast()+"\n n"+node+" -> "+self.v2.ast()
-        return v
+        try:
+            node = str(getHash(self))
+            v = "n"+node+"\n n"+node+"[label=\" Exp  : And (&&)\"]\nn"+node+"-> "+self.v1.ast()+"\n n"+node+" -> "+self.v2.ast()
+            return v
+        
+        except Exception as e:
+            print("ERROR-ASTl: "+str(e))
+            return "error\n"
 
     def gramAsc(self):
         pass 
@@ -81,14 +91,19 @@ class BAnd():
             tipo = operarSuma(val1,val2)
             if(tipo==TIPO.ERROR):
                  return valorTemporal(TIPO_TEMP.ERROR, "TIPOS INCOMPATIBLES","",TIPO.ERROR,"","")
-            return valorTemporal(TIPO_TEMP.EXPRESION, "\n"+str(temp) +" = "+str(val1.temporal) + " & "+str(val2.temporal)+";", temp, tipo, tipo,str(val1.temporal)+",&,"+str(val2.temporal),"") 
+            return valorTemporal(TIPO_TEMP.EXPRESION, val1.cadena+val2.cadena+ "\n"+str(temp) +" = "+str(val1.temporal) + " & "+str(val2.temporal)+";", temp,  tipo,str(val1.temporal)+",&,"+str(val2.temporal),"" ) 
         except Exception as exp:
             return valorTemporal(TIPO_TEMP.ERROR, "No se pudo volver bAND" + str(exp),"", Valor(TIPO.ERROR,"No se pudo resolver el bAND"),"","")
     
     def ast(self):
-        node = getHash(self)
-        v = "n"+node+"\n n"+node+"[label=\" Exp  : And (&&)\"]\nn"+node+"-> "+self.v1.ast()+"\n n"+node+" -> "+self.v2.ast()
-        return v
+        try:
+            node = str(getHash(self))
+            v = "n"+node+"\n n"+node+"[label=\" Exp  : And (&&)\"]\nn"+node+"-> "+self.v1.ast()+"\n n"+node+" -> "+self.v2.ast()
+            return v
+        
+        except Exception as e:
+            print("ERROR-ASTm: "+str(e))
+            return "error\n"
 
     def gramAsc(self):
         pass 
@@ -114,19 +129,59 @@ class BOr():
             tipo = operarSuma(val1,val2)
             if(tipo==TIPO.ERROR):
                  return valorTemporal(TIPO_TEMP.ERROR, "TIPOS INCOMPATIBLES","",TIPO.ERROR,"","")
-            return valorTemporal(TIPO_TEMP.EXPRESION, "\n"+str(temp) +" = "+str(val1.temporal) + " | "+str(val2.temporal)+";", temp, tipo, tipo,str(val1.temporal)+",|,"+str(val2.temporal),"") 
+            return valorTemporal(TIPO_TEMP.EXPRESION,  val1.cadena+val2.cadena+"\n"+str(temp) +" = "+str(val1.temporal) + " | "+str(val2.temporal)+";", temp, tipo,  str(val1.temporal)+",|,"+str(val2.temporal),"" ) 
         except Exception as exp:
             return valorTemporal(TIPO_TEMP.ERROR, "No se pudo volver bOR" + str(exp),"", Valor(TIPO.ERROR,"No se pudo resolver el bOR"),"","")
     
     def ast(self):
-        node = getHash(self)
-        v = "n"+node+"\n n"+node+"[label=\" Exp  : BOr (|)\"]\nn"+node+"-> "+self.v1.ast()+"\n n"+node+" -> "+self.v2.ast()
-        return v
+        try:
+            node = str(getHash(self))
+            v = "n"+node+"\n n"+node+"[label=\" Exp  : BOr (|)\"]\nn"+node+"-> "+self.v1.ast()+"\n n"+node+" -> "+self.v2.ast()
+            return v
+        
+        except Exception as e:
+            print("ERROR-ASTn: "+str(e))
+            return "error\n"
 
     def gramAsc(self):
         pass 
 
     
+# -------------------------------------------------- BOR  ---------------------------------------------------------------------
+class Xor():
+    def __init__(self,v1,v2):
+        self.v1 = v1
+        self.v2 = v2
+
+    def ejecutar(self,ts,ex):
+        val1 = self.v1.ejecutar(ts,ex)
+        if(val1.tipo==TIPO_TEMP.ERROR):
+            return val1
+        val2 = self.v2.ejecutar(ts,ex)
+        if(val2.tipo==TIPO_TEMP.ERROR):
+            return val2
+        try:
+            temp = ts.generarTemporal()
+            tipo = operarSuma(val1,val2)
+            if(tipo==TIPO.ERROR):
+                 return valorTemporal(TIPO_TEMP.ERROR, "TIPOS INCOMPATIBLES","",TIPO.ERROR,"","")
+            return valorTemporal(TIPO_TEMP.EXPRESION,  val1.cadena+val2.cadena+"\n"+str(temp) +" = "+str(val1.temporal) + " ^ "+str(val2.temporal)+";", temp, tipo,  str(val1.temporal)+",|,"+str(val2.temporal),"" ) 
+        except Exception as exp:
+            return valorTemporal(TIPO_TEMP.ERROR, "No se pudo volver Xor" + str(exp),"", Valor(TIPO.ERROR,"No se pudo resolver el bOR"),"","")
+    
+    def ast(self):
+        try:
+            node = str(getHash(self))
+            v = "n"+node+"\n n"+node+"[label=\" Exp  : BOr (|)\"]\nn"+node+"-> "+self.v1.ast()+"\n n"+node+" -> "+self.v2.ast()
+            return v
+        
+        except Exception as e:
+            print("ERROR-ASTo: "+str(e))
+            return "error\n"
+
+    def gramAsc(self):
+        pass 
+
 
 
 # -------------------------------------------------- Left  ---------------------------------------------------------------------
@@ -147,14 +202,19 @@ class Left():
             tipo = operarSuma(val1,val2)
             if(tipo==TIPO.ERROR):
                  return valorTemporal(TIPO_TEMP.ERROR, "TIPOS INCOMPATIBLES","",TIPO.ERROR,"","")
-            return valorTemporal(TIPO_TEMP.EXPRESION, "\n"+str(temp) +" = "+str(val1.temporal) + " << "+str(val2.temporal)+";", temp, tipo, tipo,str(val1.temporal)+",<<,"+str(val2.temporal),"") 
+            return valorTemporal(TIPO_TEMP.EXPRESION, val1.cadena+val2.cadena+ "\n"+str(temp) +" = "+str(val1.temporal) + " << "+str(val2.temporal)+";", temp, tipo, str(val1.temporal)+",<<,"+str(val2.temporal),"" ) 
         except Exception as exp:
             return valorTemporal(TIPO_TEMP.ERROR, "No se pudo volver Left" + str(exp),"", Valor(TIPO.ERROR,"No se pudo resolver el Left"),"","")
     
     def ast(self):
-        node = getHash(self)
-        v = "n"+node+"\n n"+node+"[label=\" Exp  : Left (<<)\"]\nn"+node+"-> "+self.v1.ast()+"\n n"+node+" -> "+self.v2.ast()
-        return v
+        try:
+            node = str(getHash(self))
+            v = "n"+node+"\n n"+node+"[label=\" Exp  : Left (<<)\"]\nn"+node+"-> "+self.v1.ast()+"\n n"+node+" -> "+self.v2.ast()
+            return v
+        
+        except Exception as e:
+            print("ERROR-ASTp: "+str(e))
+            return "error\n"
 
     def gramAsc(self):
         pass 
@@ -181,14 +241,19 @@ class Right():
             tipo = operarSuma(val1,val2)
             if(tipo==TIPO.ERROR):
                  return valorTemporal(TIPO_TEMP.ERROR, "TIPOS INCOMPATIBLES","",TIPO.ERROR,"","")
-            return valorTemporal(TIPO_TEMP.EXPRESION, "\n"+str(temp) +" = "+str(val1.temporal) + " >> "+str(val2.temporal)+";", temp, tipo, tipo,str(val1.temporal)+",>>,"+str(val2.temporal),"") 
+            return valorTemporal(TIPO_TEMP.EXPRESION,  val1.cadena+val2.cadena+"\n"+str(temp) +" = "+str(val1.temporal) + " >> "+str(val2.temporal)+";", temp, tipo, str(val1.temporal)+",>>,"+str(val2.temporal),"") 
         except Exception as exp:
             return valorTemporal(TIPO_TEMP.ERROR, "No se pudo volver Right" + str(exp),"", Valor(TIPO.ERROR,"No se pudo resolver el Right"),"","")
     
     def ast(self):
-        node = getHash(self)
-        v = "n"+node+"\n n"+node+"[label=\" Exp  : Right (>>)\"]\nn"+node+"-> "+self.v1.ast()+"\n n"+node+" -> "+self.v2.ast()
-        return v
+        try:
+            node = str(getHash(self))
+            v = "n"+node+"\n n"+node+"[label=\" Exp  : Right (>>)\"]\nn"+node+"-> "+self.v1.ast()+"\n n"+node+" -> "+self.v2.ast()
+            return v
+        
+        except Exception as e:
+            print("ERROR-ASTq: "+str(e))
+            return "error\n"
 
     def gramAsc(self):
         pass 
@@ -201,17 +266,23 @@ class Not():
 
     def ejecutar(self,ts,ex):
         val1 = self.v1.ejecutar(ts,ex)
+        temp = ts.generarTemporal()
         if(val1.tipo==TIPO_TEMP.ERROR):
             return val1
         try:
-            return valorTemporal(TIPO_TEMP.EXPRESION, val1.cadena+"\n"+str(val1.temporal) +" = ! "+str(val1.temporal) + ";", temp, val1.tipo,"!,"+str(val1.temporal)+",","") 
+            return valorTemporal(TIPO_TEMP.EXPRESION, val1.cadena+"\n"+str(temp) +" = ! "+str(val1.temporal) + ";", temp, val1.value,"!,"+str(val1.temporal)+",","") 
         except Exception as exp:
             return valorTemporal(TIPO_TEMP.ERROR, "No se pudo volver negar" + str(exp),"", Valor(TIPO.ERROR,"No se pudo volver negar"),"","")
     
     def ast(self):
-        node = getHash(self)
-        v = "n"+node+"\n n"+node+"[label=\" Exp  :  Not (!) Exp\"]\nn"+node+"-> "+self.v1.ast()
-        return v
+        try:
+            node = str(getHash(self))
+            v = "n"+node+"\n n"+node+"[label=\" Exp  :  Not (!) Exp\"]\nn"+node+"-> "+self.v1.ast()
+            return v
+        
+        except Exception as e:
+            print("ERROR-ASTr: "+str(e))
+            return "error\n"
 
     def gramAsc(self):
         pass 
@@ -223,17 +294,23 @@ class BNot():
 
     def ejecutar(self,ts,ex):
         val1 = self.v1.ejecutar(ts,ex)
+        temp = ts.generarTemporal()
         if(val1.tipo==TIPO_TEMP.ERROR):
             return val1
         try:
-            return valorTemporal(TIPO_TEMP.EXPRESION, val1.cadena+"\n"+str(val1.temporal) +" = ~ "+str(val1.temporal) + ";", temp, val1.tipo,"~,"+str(val1.temporal)+",","") 
+            return valorTemporal(TIPO_TEMP.EXPRESION, val1.cadena+"\n"+str(temp) +" = ~ "+str(val1.temporal) + ";", temp, val1.value,"~,"+str(val1.temporal)+",","") 
         except Exception as exp:
             return valorTemporal(TIPO_TEMP.ERROR, "No se pudo volver negar" + str(exp),"", Valor(TIPO.ERROR,"No se pudo volver negar"),"","")
     
     def ast(self):
-        node = getHash(self)
-        v = "n"+node+"\n n"+node+"[label=\" Exp  :  BNot (~) Exp\"]\nn"+node+"-> "+self.v1.ast()
-        return v
+        try:
+            node = str(getHash(self))
+            v = "n"+node+"\n n"+node+"[label=\" Exp  :  BNot (~) Exp\"]\nn"+node+"-> "+self.v1.ast()
+            return v
+        
+        except Exception as e:
+            print("ERROR-ASTs: "+str(e))
+            return "error\n"
 
     def gramAsc(self):
         pass 

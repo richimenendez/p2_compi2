@@ -3,7 +3,7 @@ from enum import Enum
 temp = 0
    
 def getHash(var):
-    return hash(var)
+    return abs(hash(var))
 
 def esNumerico(v1):
     if(v1.value==TIPO.DOUBLE or v1.value==TIPO.ENTERO or v1.value == TIPO.FLOAT):
@@ -18,6 +18,7 @@ class TIPO(Enum):
     FLOAT = 4
     ARRAY = 5
     PUNTERO = 6
+    READ = 7
 
 class TIPO_TEMP(Enum):
     ERROR = 0
@@ -32,9 +33,14 @@ class Valor():
 
 
 def operarSuma(v,b):
+    
+    if(b.value ==TIPO.ARRAY or v.value == TIPO.ARRAY):
+        return TIPO.ARRAY
+    if(b.value ==TIPO.READ):
+        return v.value
     if(v.value==TIPO.ENTERO):
         if(b.value == TIPO.ENTERO):
-            return TIPO.ENTERO
+            return TIPO.ENTERO 
         elif(b.value == TIPO.FLOAT):
             return TIPO.FLOAT
         elif(b.value == TIPO.DOUBLE):
@@ -64,11 +70,15 @@ def operarSuma(v,b):
             return TIPO.STRING
         else:
             return TIPO.ERROR
+    elif(v.value==TIPO.READ):  
+            return b.value 
     return TIPO.ERROR
 
  
  
 def operarNumerico(v,b):
+    if(b.value ==TIPO.READ):
+        return v.value
     if(v.value==TIPO.ENTERO):
         if(b.value == TIPO.ENTERO):
             return TIPO.ENTERO
@@ -96,6 +106,8 @@ def operarNumerico(v,b):
             return TIPO.DOUBLE
         else:
             return TIPO.ERROR
+    elif(v.value==TIPO.READ):  
+            return b.value 
     return TIPO.ERROR
 
  

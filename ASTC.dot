@@ -1,0 +1,1096 @@
+digraph {
+root[label="root"]
+ error[label="Error"]
+
+root ->n2144065194
+n2144065194[label="Metodo:Declaracion"]
+
+n2144065194 -> n2144062598
+ n2144062598[label=" Printf  :'========= Metodo Declaracion =========\n' "]
+n2144065194 -> n2144065221
+ n2144065221[label=" Declaracion  : n4"]
+n2144065221-> n2144065233
+ n2144065233[label = " Entero : 2"]
+n2144065194 -> n2144065215
+ n2144065215[label=" Declaracion  : db4"]
+n2144065215-> n3418420
+ n3418420[label = " Doble : 0.0"]
+n2144065194 -> n2144065206
+ n2144065206[label=" Declaracion  : db1"]
+n2144065206-> n2144065209
+ n2144065209[label = " Variable : db4"]
+n2144065194 -> n2144065203
+ n2144065203[label=" Declaracion  : chr4"]
+n2144065203-> n3418426
+ n3418426[label = " STRING : 's'"]
+n2144065194 -> n3418486
+ n3418486[label=" If   "]
+n3418486-> n3418450
+ n3418450[label=" Exp  : Igual (==)"]
+n3418450-> n3418417
+ n3418417[label = " Variable : db1"]
+ n3418450 -> n2144065200
+ n2144065200[label = " Variable : db4"]
+n3418486->n2144065212
+ n2144065212[label=" Printf  :'Declaraciones Bien :D\n' "]
+n3418486->n2144065164
+ n2144065164[label=" Asignacion  : punteo"]
+n2144065164-> n2144065173
+ n2144065173[label=" Exp  :  Suma (+)"]
+n2144065173-> n3418468
+ n3418468[label = " Variable : punteo"]
+ n2144065173 -> n2144065218
+ n2144065218[label = " Entero : 5"]
+ne3418486[label="Else"]
+n3418486->ne3418486
+ne3418486->n3418483
+ n3418483[label=" Printf  :'Problemas en el metodo declaracion :(\n' "]
+n2144065194 -> n3418447
+ n3418447[label=" Printf  :'======================================\n' "]
+root ->n2143878010
+n2143878010[label="Metodo:operacionesBasicas"]
+
+n2143878010 -> n2144065197
+ n2144065197[label=" Printf  :'Operaciones Aritmeticas 1: valor esperado:  \na)62   \nb)0   \nc)-19   \nd)256   \nresultados:\n' "]
+n2143878010 -> n2144065179
+ n2144065179[label=" Declaracion  : a"]
+n2144065179-> n3418543
+ n3418543[label=" Exp  :  Suma (+)"]
+n3418543-> n3418537
+ n3418537[label=" Exp  :  Resta (-)"]
+n3418537-> n3418531
+ n3418531[label=" Exp  :  Resta (-)"]
+n3418531-> n3418519
+ n3418519[label=" Exp  :  Suma (+)"]
+n3418519-> n2144065131
+ n2144065131[label=" Exp  :  Suma (+)"]
+n2144065131-> n3418504
+ n3418504[label=" Exp  :  Resta (-)"]
+n3418504-> n2144065167
+ n2144065167[label = " Entero : 20"]
+ n3418504 -> n3418459
+ n3418459[label = " Entero : 10"]
+ n2144065131 -> n2144065128
+ n2144065128[label=" Exp  :  Multi (*)"]
+n2144065128-> n3418465
+ n3418465[label=" Exp  :  Division (/)"]
+n3418465-> n2144065143
+ n2144065143[label = " Entero : 8"]
+ n3418465 -> n3418501
+ n3418501[label = " Entero : 2"]
+ n2144065128 -> n2144065149
+ n2144065149[label = " Entero : 3"]
+ n3418519 -> n3418498
+ n3418498[label = " Entero : 10"]
+ n3418531 -> n2144065185
+ n2144065185[label = " Entero : 10"]
+ n3418537 -> n2144065152
+ n2144065152[label = " Entero : 10"]
+ n3418543 -> n3418525
+ n3418525[label = " Entero : 50"]
+n2143878010 -> n3418555
+ n3418555[label=" Declaracion  : a2"]
+n3418555-> n3418549
+ n3418549[label=" Exp  :  Casteo ()"]
+n3418549-> n2144065098
+ n2144065098[label = " Variable : a"]
+n2143878010 -> n2144065107
+ n2144065107[label=" Declaracion  : b"]
+n2144065107-> n3418594
+ n3418594[label=" Exp  :  Resta (-)"]
+n3418594-> n3418588
+ n3418588[label=" Exp  :  Suma (+)"]
+n3418588-> n3418582
+ n3418582[label=" Exp  :  Resta (-)"]
+n3418582-> n3418576
+ n3418576[label=" Exp  :  Suma (+)"]
+n3418576-> n3418570
+ n3418570[label=" Exp  :  Multi (*)"]
+n3418570-> n3418561
+ n3418561[label=" Exp  :  Division (/)"]
+n3418561-> n3418552
+ n3418552[label = " Entero : 50"]
+ n3418561 -> n2144065113
+ n2144065113[label = " Entero : 50"]
+ n3418570 -> n2144065101
+ n2144065101[label = " Entero : 50"]
+ n3418576 -> n3418567
+ n3418567[label = " Entero : 50"]
+ n3418582 -> n3418516
+ n3418516[label = " Entero : 100"]
+ n3418588 -> n2144065083
+ n2144065083[label = " Entero : 100"]
+ n3418594 -> n2144065074
+ n2144065074[label = " Entero : 100"]
+n2143878010 -> n3418606
+ n3418606[label=" Declaracion  : b2"]
+n3418606-> n3418600
+ n3418600[label=" Exp  :  Casteo ()"]
+n3418600-> n2144065047
+ n2144065047[label = " Variable : b"]
+n2143878010 -> n2144065056
+ n2144065056[label=" Declaracion  : c"]
+n2144065056-> n2143878100
+ n2143878100[label=" Exp  :  Suma (+)"]
+n2143878100-> n2143878115
+ n2143878115[label=" Exp  :  Resta (-)"]
+n2143878115-> n2143878121
+ n2143878121[label=" Exp  :  Suma (+)"]
+n2143878121-> n2143878127
+ n2143878127[label=" Exp  :  Resta (-)"]
+n2143878127-> n2143878133
+ n2143878133[label=" Exp  :  Suma (+)"]
+n2143878133-> n2144065029
+ n2144065029[label=" Exp  :  Resta (-)"]
+n2144065029-> n3418621
+ n3418621[label=" Exp  :  Multi (*)"]
+n3418621-> n3418612
+ n3418612[label=" Exp  :  Division (/)"]
+n3418612-> n3418603
+ n3418603[label = " Entero : 100"]
+ n3418612 -> n2144065062
+ n2144065062[label = " Entero : 20"]
+ n3418621 -> n2144065050
+ n2144065050[label = " Entero : 9"]
+ n2144065029 -> n3418618
+ n3418618[label = " Entero : 78"]
+ n2143878133 -> n2144065158
+ n2144065158[label = " Entero : 6"]
+ n2143878127 -> n2144065032
+ n2144065032[label = " Entero : 7"]
+ n2143878121 -> n2143878142
+ n2143878142[label = " Entero : 8"]
+ n2143878115 -> n3605514
+ n3605514[label = " Entero : 7"]
+ n2143878100 -> n3605565
+ n3605565[label=" Exp  :  Division (/)"]
+n3605565-> n3605559
+ n3605559[label=" Exp  :  Multi (*)"]
+n3605559-> n3605553
+ n3605553[label=" Exp  :  Multi (*)"]
+n3605553-> n3605508
+ n3605508[label=" Exp  :  Multi (*)"]
+n3605508-> n3605520
+ n3605520[label = " Entero : 7"]
+ n3605508 -> n2143878109
+ n2143878109[label = " Entero : 1"]
+ n3605553 -> n3605511
+ n3605511[label = " Entero : 2"]
+ n3605559 -> n3605550
+ n3605550[label = " Entero : 3"]
+ n3605565 -> n3605544
+ n3605544[label = " Entero : 3"]
+n2143878010 -> n2143878073
+ n2143878073[label=" Declaracion  : c2"]
+n2143878073-> n3418540
+ n3418540[label=" Exp  :  Casteo ()"]
+n3418540-> n2144065068
+ n2144065068[label = " Variable : c"]
+n2143878010 -> n3418609
+ n3418609[label=" Printf  :'a) \n' "]
+n3418609->n2143878112
+ n2143878112[label = " Variable : a2"]
+n2143878010 -> n3418591
+ n3418591[label=" Printf  :'b) \n' "]
+n3418591->n3605571
+ n3605571[label = " Variable : b2"]
+n2143878010 -> n3605574
+ n3605574[label=" Printf  :'c) \n' "]
+n3605574->n3605583
+ n3605583[label = " Variable : c2"]
+n2143878010 -> n3605634
+ n3605634[label=" If   "]
+n3605634-> n2143878046
+ n2143878046[label=" Exp  : And (&&)"]
+n2143878046-> n3605589
+ n3605589[label=" Exp  : And (&&)"]
+n3605589-> n2143878061
+ n2143878061[label=" Exp  : Igual (==)"]
+n2143878061-> n3605538
+ n3605538[label = " Variable : a2"]
+ n2143878061 -> n2144065038
+ n2144065038[label = " Entero : 62"]
+ n3605589 -> n2143878097
+ n2143878097[label=" Exp  : Igual (==)"]
+n2143878097-> n2143878043
+ n2143878043[label = " Variable : b2"]
+ n2143878097 -> n3605604
+ n3605604[label = " Entero : 0"]
+ n2143878046 -> n2143878052
+ n2143878052[label=" Exp  : Igual (==)"]
+n2143878052-> n2143878076
+ n2143878076[label = " Variable : c2"]
+ n2143878052 -> n2143878025
+ n2143878025[label=" Exp  :  Resta2 (-) Exp"]
+n2143878025-> n3605610
+ n3605610[label = " Entero : 19"]
+n3605634->n2143878031
+ n2143878031[label=" Printf  :'Operaciones aritmeticas 1 bien :D\n' "]
+n3605634->n2143877995
+ n2143877995[label=" Asignacion  : punteo"]
+n2143877995-> n2143878004
+ n2143878004[label=" Exp  :  Suma (+)"]
+n2143878004-> n3605637
+ n3605637[label = " Variable : punteo"]
+ n2143878004 -> n3605613
+ n3605613[label = " Entero : 5"]
+ne3605634[label="Else"]
+n3605634->ne3605634
+ne3605634->n3605652
+ n3605652[label=" Printf  :'Error en las operaciones basicas :(\n' "]
+root ->n3431723
+n3431723[label="Metodo:operacionesAvanzadas"]
+
+n3431723 -> n2143877971
+ n2143877971[label=" Declaracion  : aritmetica1"]
+n2143877971-> n2143878055
+ n2143878055[label = " Entero : 2"]
+n3431723 -> n2143877998
+ n2143877998[label=" Declaracion  : aritmetica2"]
+n2143877998-> n3605658
+ n3605658[label=" Exp  :  Resta2 (-) Exp"]
+n3605658-> n3605628
+ n3605628[label = " Entero : 10"]
+n3431723 -> n2144065242
+ n2144065242[label=" Printf  :'Operaciones Aritmeticas 2:\n valor esperado:\n -20  2.0\n resultado:\n' "]
+n3431723 -> n2143877983
+ n2143877983[label=" Declaracion  : aritmetica3"]
+n2143877983-> n2143877986
+ n2143877986[label=" Exp  :  Multi (*)"]
+n2143877986-> n3605667
+ n3605667[label = " Variable : aritmetica2"]
+ n2143877986 -> n3605622
+ n3605622[label = " Variable : aritmetica1"]
+n3431723 -> n2143877977
+ n2143877977[label=" Printf  :'  ' "]
+n2143877977->n3605679
+ n3605679[label = " Variable : aritmetica3"]
+n3431723 -> n2143877905
+ n2143877905[label=" Declaracion  : aritmetica4"]
+n2143877905-> n2143877926
+ n2143877926[label=" Exp  :  Resta (-)"]
+n2143877926-> n3605724
+ n3605724[label=" Exp  :  Suma (+)"]
+n3605724-> n2143877956
+ n2143877956[label=" Exp  :  Resta (-)"]
+n2143877956-> n3605706
+ n3605706[label=" Exp  :  Suma (+)"]
+n3605706-> n3605700
+ n3605700[label=" Exp  :  Suma (+)"]
+n3605700-> n2143877974
+ n2143877974[label=" Exp  :  Division (/)"]
+n2143877974-> n3605694
+ n3605694[label = " Variable : aritmetica3"]
+ n2143877974 -> n3605688
+ n3605688[label = " Variable : aritmetica1"]
+ n3605700 -> n3605697
+ n3605697[label=" Exp  :  Division (/)"]
+n3605697-> n3605670
+ n3605670[label = " Entero : 50"]
+ n3605697 -> n2143877947
+ n2143877947[label = " Entero : 50"]
+ n3605706 -> n3605712
+ n3605712[label=" Exp  :  Multi (*)"]
+n3605712-> n2143877953
+ n2143877953[label = " Entero : 50"]
+ n3605712 -> n2143877989
+ n2143877989[label = " Entero : 2"]
+ n2143877956 -> n2143877935
+ n2143877935[label = " Entero : 100"]
+ n3605724 -> n3605718
+ n3605718[label=" Exp  :  Division (/)"]
+n3605718-> n2143877923
+ n2143877923[label = " Entero : 100"]
+ n3605718 -> n2143877917
+ n2143877917[label = " Entero : 100"]
+ n2143877926 -> n2143877938
+ n2143877938[label = " Entero : 0"]
+n3431723 -> n2143877980
+ n2143877980[label=" Printf  :'\n' "]
+n2143877980->n3605730
+ n3605730[label = " Variable : aritmetica4"]
+n3431723 -> n2144051918
+ n2144051918[label=" If   "]
+n2144051918-> n2143877899
+ n2143877899[label=" Exp  : And (&&)"]
+n2143877899-> n3605754
+ n3605754[label=" Exp  : Igual (==)"]
+n3605754-> n3605748
+ n3605748[label = " Variable : aritmetica3"]
+ n3605754 -> n3605757
+ n3605757[label=" Exp  :  Resta2 (-) Exp"]
+n3605757-> n3605742
+ n3605742[label = " Entero : 20"]
+ n2143877899 -> n2144051954
+ n2144051954[label=" Exp  : Igual (==)"]
+n2144051954-> n2143877965
+ n2143877965[label = " Variable : aritmetica4"]
+ n2144051954 -> n3431699
+ n3431699[label=" Exp  :  Resta2 (-) Exp"]
+n3431699-> n2143877962
+ n2143877962[label = " Doble : 8.0"]
+n2144051918->n2144051957
+ n2144051957[label=" Printf  :'Operaciones aritmeticas 2 bien :D\n' "]
+n2144051918->n3431729
+ n3431729[label=" Asignacion  : punteo"]
+n3431729-> n3431720
+ n3431720[label=" Exp  :  Suma (+)"]
+n3431720-> n2144051936
+ n2144051936[label = " Variable : punteo"]
+ n3431720 -> n3431687
+ n3431687[label = " Entero : 5"]
+ne2144051918[label="Else"]
+n2144051918->ne2144051918
+ne2144051918->n2144051921
+ n2144051921[label=" Printf  :'Error Operaciones Aritmeticas :c\n' "]
+root ->n3431900
+n3431900[label="Metodo:Aritmeticas"]
+
+n3431900 -> n2144051966
+ n2144051966[label=" Printf  :'==============Aritmeticas=============\n' "]
+n3431900 -> n2144051906
+ n2144051906[label=" Declaracion  : n1"]
+n2144051906-> n3431762
+ n3431762[label=" Exp  :  Suma (+)"]
+n3431762-> n3431756
+ n3431756[label=" Exp  :  Suma (+)"]
+n3431756-> n3431744
+ n3431744[label=" Exp  :  Suma (+)"]
+n3431744-> n3431738
+ n3431738[label=" Exp  :  Suma (+)"]
+n3431738-> n2144051939
+ n2144051939[label=" Exp  :  Suma (+)"]
+n2144051939-> n2143877896
+ n2143877896[label = " Doble : 0.0"]
+ n2144051939 -> n3431735
+ n3431735[label = " Entero : 1"]
+ n3431738 -> n3431732
+ n3431732[label = " Entero : 1"]
+ n3431744 -> n2144051897
+ n2144051897[label = " Entero : 1"]
+ n3431756 -> n2144051945
+ n2144051945[label = " Doble : 0.1"]
+ n3431762 -> n3431750
+ n3431750[label = " Entero : 49"]
+n3431900 -> n2143877902
+ n2143877902[label=" Printf  :'El valor de  n1 = \n' "]
+n2143877902->n2144051894
+ n2144051894[label = " Variable : n1"]
+n3431900 -> n2144051855
+ n2144051855[label=" If   "]
+n2144051855-> n2144051876
+ n2144051876[label=" Exp  : Igual (==)"]
+n2144051876-> n2144051882
+ n2144051882[label = " Variable : n1"]
+ n2144051876 -> n2144051900
+ n2144051900[label = " Doble : 52.1"]
+n2144051855->n3431792
+ n3431792[label=" Asignacion  : punteo"]
+n3431792-> n2144051852
+ n2144051852[label=" Exp  :  Suma (+)"]
+n2144051852-> n3431714
+ n3431714[label = " Variable : punteo"]
+ n2144051852 -> n3418462
+ n3418462[label = " Entero : 5"]
+ne2144051855[label="Else"]
+n2144051855->ne2144051855
+ne2144051855->n3431795
+ n3431795[label=" Printf  :'Perdiste 5 puntos en suma de enteros y decimales :c\n' "]
+n3431900 -> n3431801
+ n3431801[label=" Declaracion  : n4"]
+n3431801-> n3431804
+ n3431804[label=" Exp  :  Suma (+)"]
+n3431804-> n3431789
+ n3431789[label=" Exp  :  Resta (-)"]
+n3431789-> n2144051840
+ n2144051840[label=" Exp  :  Multi (*)"]
+n2144051840-> n2144051870
+ n2144051870[label = " Entero : 5750"]
+ n2144051840 -> n2144051873
+ n2144051873[label = " Entero : 2"]
+ n3431789 -> n3431810
+ n3431810[label = " Entero : 11800"]
+ n3431804 -> n2144051825
+ n2144051825[label = " Doble : 1.0"]
+n3431900 -> n3431885
+ n3431885[label=" Declaracion  : n3"]
+n3431885-> n3431852
+ n3431852[label=" Exp  :  Suma (+)"]
+n3431852-> n3431867
+ n3431867[label=" Exp  :  Resta (-)"]
+n3431867-> n3431870
+ n3431870[label=" Exp  :  Resta (-)"]
+n3431870-> n2144051798
+ n2144051798[label=" Exp  :  Suma (+)"]
+n2144051798-> n2144051813
+ n2144051813[label=" Exp  :  Suma (+)"]
+n2144051813-> n3431846
+ n3431846[label=" Exp  :  Resta (-)"]
+n3431846-> n2144051816
+ n2144051816[label=" Exp  :  Suma (+)"]
+n2144051816-> n3431837
+ n3431837[label=" Exp  :  Multi (*)"]
+n3431837-> n2144051834
+ n2144051834[label = " Entero : 3"]
+ n3431837 -> n2144051819
+ n2144051819[label = " Entero : 3"]
+ n2144051816 -> n3431822
+ n3431822[label = " Entero : 4"]
+ n3431846 -> n2144051858
+ n2144051858[label = " Entero : 80"]
+ n2144051813 -> n2144051804
+ n2144051804[label=" Exp  :  Multi (*)"]
+n2144051804-> n3431840
+ n3431840[label = " Doble : 40.0"]
+ n2144051804 -> n3431849
+ n3431849[label = " Entero : 2"]
+ n2144051798 -> n3431843
+ n3431843[label = " Doble : 358.5"]
+ n3431870 -> n2144051792
+ n2144051792[label=" Exp  :  Division (/)"]
+n2144051792-> n3431864
+ n3431864[label = " Entero : 29"]
+ n2144051792 -> n3431873
+ n3431873[label = " Doble : 14.5"]
+ n3431867 -> n2144051843
+ n2144051843[label = " Doble : 0.5"]
+ n3431852 -> n2144051771
+ n2144051771[label = " Variable : n4"]
+n3431900 -> n2144051837
+ n2144051837[label=" Printf  :'El valor de n3 = \n' "]
+n2144051837->n2144051768
+ n2144051768[label = " Variable : n3"]
+n3431900 -> n3431930
+ n3431930[label=" If   "]
+n3431930-> n2144051753
+ n2144051753[label=" Exp  : Igual (==)"]
+n2144051753-> n2144051759
+ n2144051759[label = " Variable : n3"]
+ n2144051753 -> n2144051786
+ n2144051786[label = " Entero : 70"]
+n3431930->n3431915
+ n3431915[label=" Asignacion  : punteo"]
+n3431915-> n2144051729
+ n2144051729[label=" Exp  :  Suma (+)"]
+n2144051729-> n2144051867
+ n2144051867[label = " Variable : punteo"]
+ n2144051729 -> n3431891
+ n3431891[label = " Entero : 3"]
+ne3431930[label="Else"]
+n3431930->ne3431930
+ne3431930->n3431918
+ n3431918[label=" Printf  :'Perdiste 3 puntos :c\n' "]
+n3431900 -> n2144051714
+ n2144051714[label=" Llamado  : operacionesBasicas"]
+n3431900 -> n2144051717
+ n2144051717[label=" Llamado  : operacionesAvanzadas"]
+n3431900 -> n2144051741
+ n2144051741[label=" Printf  :'======================================\n' "]
+root ->n2144052030
+n2144052030[label="Metodo:Logicas2"]
+
+n2144052030 -> n3431894
+ n3431894[label=" Declaracion  : n0"]
+n3431894-> n2144051765
+ n2144051765[label = " Entero : 16"]
+n2144052030 -> n2144052210
+ n2144052210[label=" Printf  :'==============Logicas2=============\n' "]
+n2144052030 -> n3431497
+ n3431497[label=" If   "]
+n3431497-> n3431912
+ n3431912[label=" Exp  :  Not (!) Exp"]
+n3431912-> n3431467
+ n3431467[label=" Exp  : And (&&)"]
+n3431467-> n2144052207
+ n2144052207[label=" Exp  :  Not (!) Exp"]
+n2144052207-> n3431458
+ n3431458[label=" Exp  : And (&&)"]
+n3431458-> n3431449
+ n3431449[label=" Exp  : Igual (==)"]
+n3431449-> n3431443
+ n3431443[label = " Variable : n0"]
+ n3431449 -> n3431906
+ n3431906[label = " Entero : 16"]
+ n3431458 -> n3431434
+ n3431434[label=" Exp  : Igual (==)"]
+n3431434-> n2144065236
+ n2144065236[label = " Entero : 0"]
+ n3431434 -> n2144052189
+ n2144052189[label = " Entero : 1"]
+ n3431467 -> n3431452
+ n3431452[label=" Exp  :  Not (!) Exp"]
+n3431452-> n2144052222
+ n2144052222[label = " Entero : 1"]
+n3431497->n2144051720
+ n2144051720[label=" Printf  :'Not y Ands Correctos\n' "]
+n3431497->n3431494
+ n3431494[label=" Asignacion  : punteo"]
+n3431494-> n3431485
+ n3431485[label=" Exp  :  Suma (+)"]
+n3431485-> n3431473
+ n3431473[label = " Variable : punteo"]
+ n3431485 -> n3431464
+ n3431464[label = " Entero : 3"]
+ne3431497[label="Else"]
+n3431497->ne3431497
+ne3431497->n2144052156
+ n2144052156[label=" Printf  :'No funcionan nots y ands :(\n' "]
+n2144052030 -> n2144052129
+ n2144052129[label=" Declaracion  : n1"]
+n2144052129-> n3431479
+ n3431479[label=" Exp  :  Division (/)"]
+n3431479-> n3431503
+ n3431503[label = " Variable : n0"]
+ n3431479 -> n3431500
+ n3431500[label = " Entero : 16"]
+n2144052030 -> n3431518
+ n3431518[label=" Asignacion  : n1"]
+n3431518-> n3431428
+ n3431428[label=" Exp  :  Suma (+)"]
+n3431428-> n2144052171
+ n2144052171[label = " Variable : n1"]
+ n3431428 -> n2144051735
+ n2144051735[label = " Entero : 1"]
+n2144052030 -> n2144052132
+ n2144052132[label=" Declaracion  : condicion1"]
+n2144052132-> n3431512
+ n3431512[label=" Exp  : Desigual (!=)"]
+n3431512-> n3431431
+ n3431431[label = " Variable : n1"]
+ n3431512 -> n2144052138
+ n2144052138[label = " Entero : 2"]
+n2144052030 -> n2144052111
+ n2144052111[label=" Declaracion  : aritmetica1"]
+n2144052111-> n2144052108
+ n2144052108[label=" Exp  :  Suma (+)"]
+n2144052108-> n2144052123
+ n2144052123[label=" Exp  :  Division (/)"]
+n2144052123-> n3431515
+ n3431515[label = " Variable : n0"]
+ n2144052123 -> n2144052117
+ n2144052117[label = " Entero : 16"]
+ n2144052108 -> n3431521
+ n3431521[label = " Entero : 0"]
+n2144052030 -> n2144052105
+ n2144052105[label=" Declaracion  : condicion2"]
+n2144052105-> n3431545
+ n3431545[label=" Exp  : Igual (==)"]
+n3431545-> n3431539
+ n3431539[label = " Variable : aritmetica1"]
+ n3431545 -> n3431470
+ n3431470[label = " Variable : n1"]
+n2144052030 -> n2144052099
+ n2144052099[label=" Declaracion  : condicion3"]
+n2144052099-> n2144052114
+ n2144052114[label=" Exp  :  Not (!) Exp"]
+n2144052114-> n3431551
+ n3431551[label = " Entero : 1"]
+n2144052030 -> n3431617
+ n3431617[label=" If   "]
+n3431617-> n2144051750
+ n2144051750[label=" Exp  :  Not (!) Exp"]
+n2144051750-> n3431572
+ n3431572[label=" Exp  :  Not (!) Exp"]
+n3431572-> n3431593
+ n3431593[label=" Exp  : Or (||)"]
+n3431593-> n3431578
+ n3431578[label=" Exp  :  Not (!) Exp"]
+n3431578-> n2144052087
+ n2144052087[label=" Exp  : Or (||)"]
+n2144052087-> n3431581
+ n3431581[label = " Variable : condicion1"]
+ n2144052087 -> n3431587
+ n3431587[label = " Variable : condicion2"]
+ n3431593 -> n3431590
+ n3431590[label = " Variable : condicion3"]
+n3431617->n3431566
+ n3431566[label=" Printf  :'Nots y Ors correctos\n' "]
+n3431617->n3431614
+ n3431614[label=" Asignacion  : punteo"]
+n3431614-> n3431605
+ n3431605[label=" Exp  :  Suma (+)"]
+n3431605-> n2144052084
+ n2144052084[label = " Variable : punteo"]
+ n3431605 -> n2144052072
+ n2144052072[label = " Entero : 3"]
+ne3431617[label="Else"]
+n3431617->ne3431617
+ne3431617->n2144052036
+ n2144052036[label=" Printf  :'No Funciona nots y ands :(\n' "]
+n2144052030 -> n3431876
+ n3431876[label=" Printf  :'======================================\n' "]
+root ->n3417414
+n3417414[label="Metodo:BitABit"]
+
+n3417414 -> n2144052009
+ n2144052009[label=" Declaracion  : n0"]
+n2144052009-> n3431554
+ n3431554[label = " Entero : 16"]
+n3417414 -> n3431602
+ n3431602[label=" Printf  :'==============Bit a Bit=============\n' "]
+n3417414 -> n2144052012
+ n2144052012[label=" Declaracion  : n1"]
+n2144052012-> n2144052051
+ n2144052051[label=" Exp  : And (&&)"]
+n2144052051-> n3431638
+ n3431638[label = " Variable : n0"]
+ n2144052051 -> n3431620
+ n3431620[label = " Variable : n0"]
+n3417414 -> n2144051991
+ n2144051991[label=" If   "]
+n2144051991-> n3431629
+ n3431629[label=" Exp  : Igual (==)"]
+n3431629-> n2144052015
+ n2144052015[label = " Variable : n1"]
+ n3431629 -> n3431632
+ n3431632[label = " Entero : 16"]
+n2144051991->n3431635
+ n3431635[label=" Printf  :'AND Bit a Bit bien\n' "]
+n2144051991->n2144051976
+ n2144051976[label=" Asignacion  : punteo"]
+n2144051976-> n2144051985
+ n2144051985[label=" Exp  :  Suma (+)"]
+n2144051985-> n3431656
+ n3431656[label = " Variable : punteo"]
+ n2144051985 -> n3431563
+ n3431563[label = " Entero : 1"]
+ne2144051991[label="Else"]
+n2144051991->ne2144051991
+ne2144051991->n3431671
+ n3431671[label=" Printf  :'AND Bit a Bit mal\n' "]
+n3417414 -> n2143878022
+ n2143878022[label=" Asignacion  : n1"]
+n2143878022-> n3431650
+ n3431650[label=" Exp  : BOr (|)"]
+n3431650-> n3431677
+ n3431677[label = " Entero : 51"]
+ n3431650 -> n2144051979
+ n2144051979[label=" Exp  :  BNot (~) Exp"]
+n2144051979-> n2144051982
+ n2144051982[label = " Entero : 30"]
+n3417414 -> n3417360
+ n3417360[label=" Declaracion  : n2"]
+n3417360-> n3417369
+ n3417369[label=" Exp  : BOr (|)"]
+n3417369-> n3417357
+ n3417357[label=" Exp  : BOr (|)"]
+n3417357-> n2144066290
+ n2144066290[label=" Exp  : BOr (|)"]
+n2144066290-> n3431653
+ n3431653[label = " Variable : n1"]
+ n2144066290 -> n2144052081
+ n2144052081[label = " Entero : 60"]
+ n3417357 -> n3431668
+ n3431668[label = " Entero : 70"]
+ n3417369 -> n3417354
+ n3417354[label = " Entero : 32"]
+n3417414 -> n2144066257
+ n2144066257[label=" If   "]
+n2144066257-> n3417351
+ n3417351[label=" Exp  : Igual (==)"]
+n3417351-> n2144066293
+ n2144066293[label = " Variable : n2"]
+ n3417351 -> n2144066269
+ n2144066269[label=" Exp  :  Resta2 (-) Exp"]
+n2144066269-> n2144052006
+ n2144052006[label = " Entero : 87"]
+n2144066257->n2144052024
+ n2144052024[label=" Printf  :'OR, NOT, XOR Bit a Bit bien\n' "]
+n2144066257->n3417411
+ n3417411[label=" Asignacion  : punteo"]
+n3417411-> n3417402
+ n3417402[label=" Exp  :  Suma (+)"]
+n3417402-> n2144066254
+ n2144066254[label = " Variable : punteo"]
+ n3417402 -> n3417375
+ n3417375[label = " Entero : 3"]
+ne2144066257[label="Else"]
+n2144066257->ne2144066257
+ne2144066257->n2144066239
+ n2144066239[label=" Printf  :'OR, NOT, XOR Bit a Bit mal\n' "]
+n3417414 -> n2144051997
+ n2144051997[label=" Printf  :'======================================\n' "]
+root ->n3417561
+n3417561[label="Metodo:Logicas"]
+
+n3417561 -> n3417435
+ n3417435[label=" Printf  :'==============Logicas1=============\n' "]
+n3417561 -> n3417492
+ n3417492[label=" If   "]
+n3417492-> n3417408
+ n3417408[label=" Exp  :  Not (!) Exp"]
+n3417408-> n2144066260
+ n2144066260[label=" Exp  :  Not (!) Exp"]
+n2144066260-> n3417384
+ n3417384[label=" Exp  :  Not (!) Exp"]
+n3417384-> n2144066215
+ n2144066215[label=" Exp  :  Not (!) Exp"]
+n2144066215-> n3417420
+ n3417420[label=" Exp  :  Not (!) Exp"]
+n3417420-> n3417423
+ n3417423[label=" Exp  :  Not (!) Exp"]
+n3417423-> n3417426
+ n3417426[label=" Exp  :  Not (!) Exp"]
+n3417426-> n3417429
+ n3417429[label=" Exp  :  Not (!) Exp"]
+n3417429-> n3417438
+ n3417438[label=" Exp  :  Not (!) Exp"]
+n3417438-> n3417441
+ n3417441[label=" Exp  :  Not (!) Exp"]
+n3417441-> n3417444
+ n3417444[label=" Exp  :  Not (!) Exp"]
+n3417444-> n3417447
+ n3417447[label=" Exp  :  Not (!) Exp"]
+n3417447-> n3417450
+ n3417450[label=" Exp  :  Not (!) Exp"]
+n3417450-> n3417453
+ n3417453[label=" Exp  :  Not (!) Exp"]
+n3417453-> n3417456
+ n3417456[label=" Exp  :  Not (!) Exp"]
+n3417456-> n3417459
+ n3417459[label=" Exp  :  Not (!) Exp"]
+n3417459-> n3417462
+ n3417462[label=" Exp  :  Not (!) Exp"]
+n3417462-> n3417465
+ n3417465[label=" Exp  :  Not (!) Exp"]
+n3417465-> n3417468
+ n3417468[label=" Exp  :  Not (!) Exp"]
+n3417468-> n3417471
+ n3417471[label=" Exp  :  Not (!) Exp"]
+n3417471-> n2144062607
+ n2144062607[label=" Exp  :  Not (!) Exp"]
+n2144062607-> n3417477
+ n3417477[label=" Exp  :  Not (!) Exp"]
+n3417477-> n3417432
+ n3417432[label = " Entero : 1"]
+n3417492->n2144066155
+ n2144066155[label=" Asignacion  : punteo"]
+n2144066155-> n2144066149
+ n2144066149[label=" Exp  :  Suma (+)"]
+n2144066149-> n3417417
+ n3417417[label = " Variable : punteo"]
+ n2144066149 -> n3417378
+ n3417378[label = " Entero : 1"]
+n3417492->n3417498
+ n3417498[label=" Printf  :'Bien primera condicion :)\n' "]
+ne3417492[label="Else"]
+n3417492->ne3417492
+ne3417492->n3417486
+ n3417486[label=" Printf  :'Perdiste 1 punto :c\n' "]
+n3417561 -> n2144066098
+ n2144066098[label=" If   "]
+n2144066098-> n3417525
+ n3417525[label=" Exp  : Or (||)"]
+n3417525-> n2144066125
+ n2144066125[label=" Exp  : Or (||)"]
+n2144066125-> n3417489
+ n3417489[label=" Exp  : And (&&)"]
+n3417489-> n2144065140
+ n2144065140[label = " Entero : 1"]
+ n3417489 -> n2144066236
+ n2144066236[label = " Entero : 1"]
+ n2144066125 -> n2144066122
+ n2144066122[label=" Exp  : And (&&)"]
+n2144066122-> n2144066161
+ n2144066161[label=" Exp  : And (&&)"]
+n2144066161-> n3417534
+ n3417534[label = " Entero : 0"]
+ n2144066161 -> n3417504
+ n3417504[label = " Entero : 0"]
+ n2144066122 -> n2144066146
+ n2144066146[label = " Entero : 0"]
+ n3417525 -> n3417540
+ n3417540[label=" Exp  :  Not (!) Exp"]
+n3417540-> n2144066140
+ n2144066140[label = " Entero : 1"]
+n2144066098->n3417552
+ n3417552[label=" Asignacion  : punteo"]
+n3417552-> n2144066092
+ n2144066092[label=" Exp  :  Suma (+)"]
+n2144066092-> n2144066113
+ n2144066113[label = " Variable : punteo"]
+ n2144066092 -> n2144066167
+ n2144066167[label = " Entero : 1"]
+n2144066098->n3417555
+ n3417555[label=" Printf  :'Bien segunda condicion :)\n' "]
+ne2144066098[label="Else"]
+n2144066098->ne2144066098
+ne2144066098->n2144066134
+ n2144066134[label=" Printf  :'Mal segunda condicion :c\n' "]
+n3417561 -> n3431702
+ n3431702[label=" Printf  :'======================================\n' "]
+n3417561 -> n3417573
+ n3417573[label=" Llamado  : Logicas2"]
+n3417561 -> n3417546
+ n3417546[label=" Llamado  : BitABit"]
+root ->n3419775
+n3419775[label="Metodo:relaciones1"]
+
+n3419775 -> n3421046
+ n3421046[label=" Printf  :'==============relacionales1=============\n' "]
+n3419775 -> n2144066059
+ n2144066059[label=" Declaracion  : n0"]
+n2144066059-> n3417564
+ n3417564[label=" Exp  :  Suma (+)"]
+n3417564-> n3417588
+ n3417588[label = " Variable : salida"]
+ n3417564 -> n2144066062
+ n2144066062[label = " Doble : 0.0"]
+n3419775 -> n3419712
+ n3419712[label=" If   "]
+n3419712-> n3417582
+ n3417582[label=" Exp  : Menor (<)"]
+n3417582-> n3417585
+ n3417585[label = " Variable : n0"]
+ n3417582 -> n2144066065
+ n2144066065[label = " Doble : 34.44"]
+n3419712->n3417390
+ n3417390[label=" Asignacion  : salida"]
+n3417390-> n3419664
+ n3419664[label=" Exp  :  Suma (+)"]
+n3419664-> n3417495
+ n3417495[label = " Variable : salida"]
+ n3419664 -> n2144062616
+ n2144062616[label = " Entero : 15"]
+n3419712->n2144063950
+ n2144063950[label=" If   "]
+n2144063950-> n3419679
+ n3419679[label=" Exp  : Mayor (>)"]
+n3419679-> n3419658
+ n3419658[label = " Variable : salida"]
+ n3419679 -> n3419673
+ n3419673[label = " Entero : 44"]
+n2144063950->n2144063953
+ n2144063953[label=" Asignacion  : salida"]
+n2144063953-> n3419700
+ n3419700[label=" Exp  :  Suma (+)"]
+n3419700-> n2144063977
+ n2144063977[label = " Variable : salida"]
+ n3419700 -> n2144063986
+ n2144063986[label = " Entero : 1"]
+ne3419712[label="Else"]
+n3419712->ne3419712
+ne3419712->n3419697
+ n3419697[label=" Asignacion  : salida"]
+n3419697-> n2144063956
+ n2144063956[label = " Entero : 1"]
+n3419775 -> n2144063926
+ n2144063926[label=" If   "]
+n2144063926-> n2144063992
+ n2144063992[label=" Exp  : Desigual (!=)"]
+n2144063992-> n2144066053
+ n2144066053[label = " Variable : salida"]
+ n2144063992 -> n3417576
+ n3417576[label = " Entero : 1"]
+n2144063926->n2144063896
+ n2144063896[label=" If   "]
+n2144063896-> n2144063998
+ n2144063998[label=" Exp  : Igual (==)"]
+n2144063998-> n3419715
+ n3419715[label = " Variable : salida"]
+ n2144063998 -> n3419667
+ n3419667[label = " Entero : 50"]
+n2144063896->n3431560
+ n3431560[label=" Printf  :'salida Correcta Relacionales 1!\n' "]
+n2144063896->n3419751
+ n3419751[label=" Asignacion  : punteo"]
+n3419751-> n3419742
+ n3419742[label=" Exp  :  Suma (+)"]
+n3419742-> n2144063914
+ n2144063914[label = " Variable : punteo"]
+ n3419742 -> n3419721
+ n3419721[label = " Entero : 5"]
+ne2144063896[label="Else"]
+n2144063896->ne2144063896
+ne2144063896->n2144063899
+ n2144063899[label=" Printf  :'salida incorrecta!!\n' "]
+ne2144063926[label="Else"]
+n2144063926->ne2144063926
+ne2144063926->n3419736
+ n3419736[label=" Printf  :'salida incorrecta!!\n' "]
+n3419775 -> n3417594
+ n3417594[label=" Printf  :'======================================\n' "]
+root ->n2144063860
+n2144063860[label="Metodo:relaciones2"]
+
+n2144063860 -> n2144066101
+ n2144066101[label=" Printf  :'============Relacionales2=============\n' "]
+n2144063860 -> n3419793
+ n3419793[label=" If   "]
+n3419793-> n3419709
+ n3419709[label=" Exp  : And (&&)"]
+n3419709-> n3419757
+ n3419757[label=" Exp  : MayorQue (>=)"]
+n3419757-> n3419676
+ n3419676[label=" Exp  :  Resta (-)"]
+n3419676-> n2144063875
+ n2144063875[label = " Entero : 10"]
+ n3419676 -> n2144063887
+ n2144063887[label = " Entero : 15"]
+ n3419757 -> n2144062604
+ n2144062604[label = " Entero : 0"]
+ n3419709 -> n2144063920
+ n2144063920[label=" Exp  : Igual (==)"]
+n2144063920-> n3419730
+ n3419730[label = " Doble : 44.44"]
+ n2144063920 -> n2144063917
+ n2144063917[label = " Doble : 44.44"]
+n3419793->n2144063890
+ n2144063890[label=" Printf  :'salida incorrecta primer if relacionales2!!\n' "]
+ne3419793[label="Else"]
+n3419793->ne3419793
+ne3419793->n2144063764
+ n2144063764[label=" If   "]
+n2144063764-> n3419856
+ n3419856[label=" Exp  : And (&&)"]
+n3419856-> n3419841
+ n3419841[label=" Exp  : Igual (==)"]
+n3419841-> n2144063842
+ n2144063842[label=" Exp  :  Suma (+)"]
+n2144063842-> n2144063902
+ n2144063902[label = " Entero : 15"]
+ n2144063842 -> n2144063854
+ n2144063854[label = " Entero : 8"]
+ n3419841 -> n3419820
+ n3419820[label=" Exp  :  Resta (-)"]
+n3419820-> n2144063821
+ n2144063821[label=" Exp  :  Suma (+)"]
+n2144063821-> n3419805
+ n3419805[label=" Exp  :  Resta (-)"]
+n3419805-> n3419766
+ n3419766[label = " Entero : 22"]
+ n3419805 -> n2144063833
+ n2144063833[label = " Entero : 10"]
+ n2144063821 -> n3419802
+ n3419802[label=" Exp  :  Multi (*)"]
+n3419802-> n3419814
+ n3419814[label = " Entero : 5"]
+ n3419802 -> n3419829
+ n3419829[label = " Entero : 3"]
+ n3419820 -> n3419826
+ n3419826[label = " Entero : 4"]
+ n3419856 -> n3419859
+ n3419859[label=" Exp  : Mayor (>)"]
+n3419859-> n2144063824
+ n2144063824[label=" Exp  :  Multi (*)"]
+n2144063824-> n2144063836
+ n2144063836[label = " Entero : 13"]
+ n2144063824 -> n2144063815
+ n2144063815[label = " Entero : 0"]
+ n3419859 -> n3419862
+ n3419862[label=" Exp  :  Resta2 (-) Exp"]
+n3419862-> n3419838
+ n3419838[label = " Entero : 1"]
+n2144063764->n2144063749
+ n2144063749[label=" If   "]
+n2144063749-> n2144063803
+ n2144063803[label=" Exp  : Desigual (!=)"]
+n2144063803-> n2144063809
+ n2144063809[label = " Doble : 10.0"]
+ n2144063803 -> n2144063761
+ n2144063761[label=" Exp  :  Resta (-)"]
+n2144063761-> n2144063773
+ n2144063773[label = " Doble : 11.0"]
+ n2144063761 -> n3419811
+ n3419811[label = " Doble : 1.01"]
+n2144063749->n2144063794
+ n2144063794[label=" Printf  :'salida CORRECTA en relacionales2!!\n' "]
+n2144063749->n2144052466
+ n2144052466[label=" Asignacion  : punteo"]
+n2144052466-> n3431172
+ n3431172[label=" Exp  :  Suma (+)"]
+n3431172-> n2144063746
+ n2144063746[label = " Variable : punteo"]
+ n3431172 -> n3419880
+ n3419880[label = " Entero : 5"]
+ne2144063749[label="Else"]
+n2144063749->ne2144063749
+ne2144063749->n3419901
+ n3419901[label=" Printf  :'salida incorrecta segundo if relacionales 2!!\n' "]
+ne2144063764[label="Else"]
+n2144063764->ne2144063764
+ne2144063764->n3431211
+ n3431211[label=" If   "]
+n3431211-> n2144052445
+ n2144052445[label=" Exp  : Igual (==)"]
+n2144052445-> n3431184
+ n3431184[label = " Entero : 1"]
+ n2144052445 -> n2144063752
+ n2144063752[label = " Entero : 1"]
+n3431211->n3419868
+ n3419868[label=" Printf  :'salida incorrecta relacionales 2 3er if !!\n' "]
+ne3431211[label="Else"]
+n3431211->ne3431211
+ne3431211->n2144052469
+ n2144052469[label=" Printf  :'salida incorrecta relacionales 2 Sino3er if !!\n' "]
+n2144063860 -> n2144066242
+ n2144066242[label=" Printf  :'======================================\n' "]
+root ->n2144063776
+n2144063776[label="Metodo:Relacionales"]
+
+n2144063776 -> n2144063965
+ n2144063965[label=" Declaracion  : n0"]
+n2144063965-> n2144063962
+ n2144063962[label = " Entero : 34"]
+n2144063776 -> n3419781
+ n3419781[label=" Declaracion  : n1"]
+n3419781-> n2144063869
+ n2144063869[label = " Entero : 16"]
+n2144063776 -> n3419850
+ n3419850[label=" Llamado  : relaciones1"]
+n2144063776 -> n2144063782
+ n2144063782[label=" Llamado  : relaciones2"]
+root ->n3431277
+n3431277[label="Main"]
+
+n3431277 -> n3419724
+ n3419724[label=" Declaracion  : var1"]
+n3419724-> n2144063935
+ n2144063935[label = " Entero : 1"]
+n3431277 -> n3431214
+ n3431214[label=" Declaracion  : punteo"]
+n3431214-> n3419787
+ n3419787[label = " Entero : 0"]
+n3431277 -> n3431196
+ n3431196[label=" Declaracion  : var1"]
+n3431196-> n3419895
+ n3419895[label = " Entero : 0"]
+n3431277 -> n2144063932
+ n2144063932[label=" Printf  :'-----------------CALIFICACION-----------------\n' "]
+n3431277 -> n2144052385
+ n2144052385[label=" If   "]
+n2144052385-> n3431199
+ n3431199[label=" Exp  : Desigual (!=)"]
+n3431199-> n3431202
+ n3431202[label = " Variable : var1"]
+ n3431199 -> n2144066095
+ n2144066095[label = " Entero : 0"]
+n2144052385->n2144063857
+ n2144063857[label=" Printf  :'No se toma con prioridad la variable local ante la global\n' "]
+n2144052385->n2144052427
+ n2144052427[label=" Printf  :'Perdiste 5 puntos :c\n' "]
+ne2144052385[label="Else"]
+n2144052385->ne2144052385
+ne2144052385->n3431241
+ n3431241[label=" Asignacion  : punteo"]
+n3431241-> n3431259
+ n3431259[label=" Exp  :  Suma (+)"]
+n3431259-> n3431256
+ n3431256[label = " Variable : punteo"]
+ n3431259 -> n2144052397
+ n2144052397[label = " Entero : 5"]
+n3431277 -> n2144052409
+ n2144052409[label=" Llamado  : Declaracion"]
+n3431277 -> n2144052400
+ n2144052400[label=" Llamado  : Aritmeticas"]
+n3431277 -> n3431247
+ n3431247[label=" Llamado  : Logicas"]
+n3431277 -> n2144052412
+ n2144052412[label=" Llamado  : Relacionales"]
+n3431277 -> n3431250
+ n3431250[label=" Printf  :'punteo Final: \n' "]
+n3431250->n3431268
+ n3431268[label = " Variable : punteo"]
+n3431277 -> n2144052439
+ n2144052439[label=" Printf  :'FINNNNNNNN\n' "]
+}

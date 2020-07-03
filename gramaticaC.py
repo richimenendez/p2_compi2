@@ -18,6 +18,7 @@ reservadas = {
     'float': 'float',
     'double': 'double',
     'char': 'char',
+    'void': 'void',
     'sizeof': 'sizeof',
     
     'printf': 'printf',
@@ -52,8 +53,7 @@ tokens = [
     'RESTA',
     'MULTI',
     'DIV',
-    'PORCENTAJE',
-    'PUNTERO',
+    'PORCENTAJE',  
 
 
     'NOT',
@@ -96,8 +96,7 @@ tokens = [
     'INCE',
     'DECRE',
     'ASK',
-    'PUNTO',
-    'COSO'
+    'PUNTO' 
 ] + list(reservadas.values())
 
 t_RESTA = r'-'
@@ -105,11 +104,9 @@ t_SUMA = r'\+'
 t_MULTI = r'\*'
 t_DIV = r'\/'
 t_PORCENTAJE = r'\%'
-
-t_PUNTERO = r'\&'
+ 
 t_PUNTO = r'\.'
-t_COMA = r'\,'
-t_COSO = r'\~'
+t_COMA = r'\,' 
 
 t_NOT = r'\!'
 t_AND = r'\&\&'
@@ -159,8 +156,8 @@ def t_DOUBLE(t):
     return t    
 
 def t_STR(t):
-    r'(\'.*?\')|(\".=\")'
-    t.value = t.value[1:-1]
+    r'((\'.*?\')|(\".*?\"))'
+    t.value = t.value
     return t
 
 def t_INTEGER(t):
@@ -182,7 +179,7 @@ def t_VAR(t):
     return t
 
 def t_COMENTARIO(t):
-    r'\#.*\n'
+    r'\/\/.*\n'
     t.lexer.lineno += 1
 
 t_ignore = " \t"
@@ -211,9 +208,16 @@ from Arbol.logico import *
 
 
 precedence = (
+    ('left','COMA'),
+    ('right','ASK'),
+    ('left','BLEFT','BRIGHT'),
+    ('left' ,'BXOR'),
+    ('left','OR','BOR'),
+    ('left','AND','BAND'),
     ('left','MAYOR','MENOR','DIGUAL','DESIGUAL','MAYORIGUAL','MENORIGUAL'),
     ('left','RESTA','SUMA'),
-    ('left','DIV','MULTI','PORCENTAJE')
+    ('left','DIV','MULTI','PORCENTAJE'),
+    ('right','NOT','BNOT','sizeof')
 )
 
 def p_s_tag(t):
@@ -234,17 +238,21 @@ def p_body(t):
     '''
     body : TYPE ID IZQPAR lpam DERPAR IZQCOR linst DERCOR
     '''
-    t[0] = Metodo(t[2],t[6],str(""))
+    t[0] = AddMetodo(t[2],t[4],t[7],str(""))
 
 def p_body2(t):
     '''
     body : TYPE main IZQPAR lpam DERPAR IZQCOR linst DERCOR
     '''
-    t[0] = Metodo(t[2],t[6],str(""))
+    t[0] = Metodo(t[2],None,t[7],str(t.lineno(1)))
 
 def p_body_str(t):
     "body : struct ID IZQCOR linst DERCOR"
     t[0] = t[4]
+
+def p_body_decl(t):
+    "body : decla PCOMA"
+    t[0] = t[1]
 
 def p_linst(t):
     '''
@@ -264,14 +272,22 @@ def p_lpam(t):
     lpam : lparam 
          | 
     '''
-    pass
+    if(len(t)==1):
+        t[0]  = None 
+    else:
+        t[0] = t[1]
 
 def p_lparam(t):
     '''
     lparam : lparam COMA TYPE ident
          | TYPE ident
     '''
-    pass
+    if(len(t)==3):
+        t[0] = list() 
+        t[0].append(t[2])
+    else:
+        t[0] = t[1]
+        t[0].append(t[4])
 
 
 
@@ -281,26 +297,86 @@ def p_lparam(t):
 
 def p_inst(t):      # INSTRUCCIÓNES
     '''
-    inst : asig
+    inst : asig PCOMA
          | para
          | si
          | mientras
          | cual
+         | call
          | dow
          | prin
-         | decla
+         | decla PCOMA
+         | tag
+         | gotot PCOMA
     '''
     t[0] = t[1]
 
-def p_asig(t):      # INSTRUCCIÓN ----> ASIGNACIÓN
-    "asig : ident lacs IGUAL exp PCOMA"
-    t[0] = Asignacion(t[1],t[3],str(""))
+def p_call(t):
+    "call : ident IZQPAR plex DERPAR PCOMA "
+    t[0] = Call(t[1],t[3],str(t.lineno(1)))
 
+
+def p_plex(t):
+    '''
+        plex : lex 
+             | 
+    '''
+    if(len(t)==1):
+        t[0] = None 
+    else:
+        t[0] = t[1]
+def p_lex(t):
+    '''
+        lex : lex COMA exp
+            | exp
+    '''
+    if(len(t)==2):
+        t[0] = []
+        t[0].append(t[1])
+    else:
+        t[0] = t[1] 
+        t[0].append(t[3])
+        
+def p_tag(t):
+    "tag : ident DP"
+    t[0] = Etiqueta(t[1])
+
+def p_goto(t):
+    "gotot : goto ident"
+    t[0] = Salto(t[2])
+
+def p_asig(t):      # INSTRUCCIÓN ----> ASIGNACIÓN
+    '''asig : ident lacs IGUAL exp  
+            | ident IGUAL exp  '''
+    if(len(t)==5):
+        t[0] = Asignacion(t[1],t[2],t[4],str(t.lineno(1)))
+    else:
+        t[0] = Asignacion(t[1],None,t[3],str(t.lineno(1)))
+
+def p_asig_Incre(t):      # INSTRUCCIÓN ----> INCREMENTO
+    '''asig : ident lacs INCE  
+            | ident INCE  '''
+    if(len(t)==4):
+        t[0] = Incremento(t[1],t[2] ,str(t.lineno(1)))
+    else:
+        t[0] = Incremento(t[1],None ,str(t.lineno(1)))
+
+def p_asig_decre(t):      # INSTRUCCIÓN ----> INCREMENTO
+    '''asig : ident lacs DECRE  
+            | ident DECRE  '''
+    if(len(t)==4):
+        t[0] = Decremento(t[1],t[2],str(t.lineno(1)))
+    else:
+        t[0] = Decremento(t[1],None,str(t.lineno(1)))
 
 def p_declara(t):      # INSTRUCCIÓN ----> ASIGNACIÓN
-    "decla : TYPE ident lacs IGUAL exp PCOMA"
-    t[0] = Declaracion(t[2],t[4],str(""))
-
+    '''decla : TYPE ident lacs IGUAL exp  
+             |  TYPE ident IGUAL exp  '''
+    if(len(t)==7):
+        t[0] = Declaracion(t[2],t[3],t[5],str(t.lineno(1)))
+    else:
+        t[0] = Declaracion(t[2],None,t[4],str(t.lineno(1)))
+        
 def p_while(t):     # INSTRUCCIÓN ----> WHILE
     "mientras : while IZQPAR exp DERPAR IZQCOR linst DERCOR"
     t[0] = Para(t[3],t[6],str(""))
@@ -312,9 +388,9 @@ def p_if(t):     # INSTRUCCIÓN ----> IF
     '''si : if IZQPAR exp DERPAR IZQCOR linst DERCOR lelsi els
           | if IZQPAR exp DERPAR IZQCOR linst DERCOR els'''
     if(len(t)==9):
-        t[0] = Si(t[3],t[6],None,t[8],str(""))
+        t[0] = Si(t[3],t[6],None,t[8],str(t.lineno(1)))
     else:
-        t[0] = Si(t[3],t[6],t[8],t[9],str(""))
+        t[0] = Si(t[3],t[6],t[8],t[9],str(t.lineno(1)))
 
 def p_lelif(t):
     '''
@@ -330,7 +406,7 @@ def p_lelif(t):
  
 def p_elif(t):
     "elsi : else if IZQPAR exp DERPAR IZQCOR linst DERCOR"
-    t[0] = ElseSi(t[4],t[7],None,None,str(""))
+    t[0] = ElseSi(t[4],t[7],None,None,str(t.lineno(1)))
 def p_else(t):
     '''els : else IZQCOR linst DERCOR
         | '''
@@ -340,7 +416,25 @@ def p_else(t):
         t[0] = t[3]
 
 def p_for(t):     # INSTRUCCIÓN ----> FOR
-    "para : for IZQPAR exp DERPAR IZQCOR linst DERCOR"
+    "para : for IZQPAR para1 exp PCOMA para2 DERPAR IZQCOR linst DERCOR"
+    t[0] = Forr(t[3],t[4],t[6],t[9],str(t.lineno(1)))
+
+def p_for1(t):
+    '''
+    para1 : asig PCOMA
+          | decla PCOMA
+    '''
+    t[0] = t[1]
+
+
+def p_for2(t):
+    '''
+    para2 : asig
+          | decla
+          | exp
+    '''
+    t[0] = t[1]
+
 
 
 def p_switch(t):  # INSTRUCCIÓN -----> SWITCH
@@ -365,11 +459,11 @@ def p_def(t):
 
 def p_printf(t):     # INSTRUCCIÓN ----> LLAMADO PRINTF
     '''prin : printf IZQPAR STR lexpr DERPAR PCOMA'''
-    t[0] = Printf(t[3],t[4],str(""))
+    t[0] = Printf(t[3],t[4],str(t.lineno(1)))
 
 def p_printf2(t):     # INSTRUCCIÓN ----> LLAMADO PRINTF
     '''prin : printf IZQPAR STR DERPAR PCOMA'''
-    t[0] = Printf(t[3],t[4],str(""))
+    t[0] = Printf(t[3],None,str(t.lineno(1)))
 
 def p_readf(t):     # INSTRUCCIÓN ----> LLAMADO scanf
     '''exp : scanf IZQPAR DERPAR'''
@@ -398,11 +492,8 @@ def p_accesos(t):
     '''
         lacs : lacs acs
              | acs
-             |
     '''
-    if(len(t)==1):
-        t[0] = None
-    elif(len(t)==2):
+    if(len(t)==2):
         t[0] = list()
         t[0].append(t[1])
     else:
@@ -411,9 +502,9 @@ def p_accesos(t):
 
 def p_array(t):
     '''
-        acs : IZQCOR Exp DERCOR
+        acs : IZQLLAVE exp DERLLAVE
     '''
-    t[0] = ValorArray(t[2])
+    t[0] = ValorArray2(t[2])
 
 def p_access(t):
     '''
@@ -445,7 +536,9 @@ def p_expresion(t):
         | exp     BRIGHT     exp
         | RESTA   exp
         | NOT     exp
-        | BNOT    exp
+        | BNOT    exp 
+        | sizeof    exp 
+        | IZQPAR exp DERPAR
     '''
     if(t[2]=='+'):
         t[0] = Suma(t[1],t[3])
@@ -454,7 +547,7 @@ def p_expresion(t):
     elif(t[2]=='*'):
         t[0] = Multi(t[1],t[3])
     elif(t[2]=='/'):
-        t[0] = Resta(t[1],t[3])
+        t[0] = Divi(t[1],t[3])
     elif(t[2]=='%'):
         t[0] = Modulo(t[1],t[3])
     elif(t[2]=='>'):
@@ -477,13 +570,30 @@ def p_expresion(t):
         t[0] = BAnd(t[1],t[3])
     elif(t[2]=='|'):
         t[0] = BOr(t[1],t[3])
+    elif(t[2]=='^'):
+        t[0] = Xor(t[1],t[3])
     elif(t[1]=='!'):
-        t[0] = Not(t[1],t[3])
+        t[0] = Not(t[2],None)
     elif(t[1]=='~'):
-        t[0] = BNot(t[1],t[3])
+        t[0] = BNot(t[2],None)
+    elif(t[1]=='('):
+        t[0] = t[2]
     elif(t[1]=='-'):
-        t[0] = Resta2(t[1],t[3])
+        t[0] = Resta2(t[2],None)
+    elif(t[1]=='sizeof'):
+        t[0] = Tamano(t[2],None)
     
+def p_cast(t):
+    '''
+    exp : IZQPAR TYPE DERPAR exp
+    '''
+    t[0] = Casteo(t[2],t[4])
+
+def p_ternario(t):
+    '''
+    exp : exp ASK exp DP exp
+    '''
+    t[0] = Casteo(t[2],t[4])
 
 def p_value_dou(t):
     '''
@@ -497,11 +607,19 @@ def p_value_ent(t):
 
 def p_value_id(t):
     "exp  : ident"
-    t[0] = ValorVariable(t[1])
+    t[0] = ValorVariable(t[1],None)
+
+def p_value_id2(t):
+    "exp  : ident lacs"
+    t[0] = ValorVariable(t[1],t[2])
 
 def p_value_str(t):
     "exp  : STR"
-    t[0] = ValorVariable(t[1])
+    t[0] = ValorString(t[1])
+
+def p_valur_arr(t):
+    " exp : IZQCOR lex DERCOR"
+    t[0] = ValorArray(t[2])
 
 def p_type(t):
     '''
@@ -509,28 +627,19 @@ def p_type(t):
         | float
         | char
         | double
+        | void
     '''
-    pass
+    t[0] = t[1]
 
-def p_error(t):
-    if(t!=None):
-        print("Error sintáctico en: '%s'" % t.value)
-        erroresSintacticos.append("Error Sintactico:  Token: "+t.value + "   En Linea : " +str(t.lineno))
-        
-        while(True):
-            tok = parser.token()
-            if(tok==None):
-                break
-            elif(tok.type=="IZQCOR"):
-                break
-        parser.errok()
-        return tok
-    else:
-        print("Error Irrecuperable")
-        erroresSintacticos.append("Error Sintactico: No hay un token!")
+def p_error(t): 
+        #erroresSintacticos.append("Error Sintactico:  Token: "+str(t.value) + "   En Linea : " +str(t.lineno))
+    try:
+        print("Sintax : El error es: "+t.value+" en la linea "+ t.lineno)
+    except:
+        print("ERROR CRITICO " + str(t))  
 
 #Creador del Analisis Sintactico
-
+from Arbol.reportes import *
 erroresLexicos = []
 erroresSintacticos = []
 parser = yacc.yacc()
@@ -544,9 +653,28 @@ def ejecutar(v):
     erroresSintacticos = []
     ts = TablaSimbolos()
     arbol = parser.parse(v,tracking=True)
+    cadena = ""
     for a in arbol:
         c = a.ejecutar(ts,None)
-        print(c.cadena)
+        if isinstance(a,Metodo): 
+            cadena+=c.cadena
+        if isinstance(a,Declaracion): 
+            cadena+=c.cadena
+    try:
+        reporteErrores([],[],ts.errorSemantico)
+    except Exception as e:
+        print("Error Generando el Reporte:  "+ str(e))
+    try:
+        reporteAST(arbol)
+    except Exception as e:
+        print("Error Generando el Reporte:  "+ str(e))
+    try:
+        reporteTS(ts.tsReport,ts.metodos)
+    except Exception as e:
+        print("Error Generando el Reporte:  "+ str(e))
+
+
+    return cadena
     # tk = tkinter.Tk() # Create the object
     # tk.geometry('1280x200')
     # text = tkinter.Text(tk,height=200, width=1280)

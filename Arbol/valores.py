@@ -32,8 +32,8 @@ class ValorEntero():
             return valorTemporal(TIPO_TEMP.ERROR, "No se pudo volver Entero","",TIPO.ERROR,"","")
     
     def ast(self):
-        node = getHash(self)
-        v = "n"+node+"\n n"+node+"[label\" Entero : "+self.valor+"\"]"
+        node = str(getHash(self))
+        v = "n"+node+"\n n"+node+"[label = \" Entero : "+str(self.valor)+"\"]"
         return v
 
     def gramAsc(self):
@@ -53,8 +53,8 @@ class ValorDoble():
             return valorTemporal(TIPO_TEMP.ERROR, "No se pudo volver Entero","", TIPO.ERROR,"","")
     
     def ast(self):
-        node = getHash(self)
-        v = "n"+node+"\n n"+node+"[label\" Doble : "+self.valor+"\"]"
+        node = str(getHash(self))
+        v = "n"+node+"\n n"+node+"[label = \" Doble : "+str(self.valor)+"\"]"
         return v
 
     def gramAsc(self):
@@ -73,8 +73,8 @@ class ValorString():
             return valorTemporal(TIPO_TEMP.ERROR, "No se pudo volver String","", TIPO.ERROR,"","")
     
     def ast(self):
-        node = getHash(self)
-        v = "n"+node+"\n n"+node+"[label\" STRING : "+self.valor+"\"]"
+        node = str(getHash(self))
+        v = "n"+node+"\n n"+node+"[label = \" STRING : "+str(self.valor).replace("\"","")+"\"]"
         return v
 
     def gramAsc(self):
@@ -93,8 +93,8 @@ class ValorFloat():
             return valorTemporal(TIPO_TEMP.ERROR, "No se pudo volver Entero","",TIPO.ERROR,"","")
     
     def ast(self):
-        node = getHash(self)
-        v = "n"+node+"\n n"+node+"[label\" STRING : "+self.valor+"\"]"
+        node = str(getHash(self))
+        v = "n"+node+"\n n"+node+"[label = \" Float : "+str(self.valor)+"\"]"
         return v
 
     def gramAsc(self):
@@ -103,8 +103,9 @@ class ValorFloat():
 
 # -------------------------------------------------- NODO Varibvle   ---------------------------------------------------------------------
 class ValorVariable():
-    def __init__(self,valor):
+    def __init__(self,valor, access):
         self.valor = valor
+        self.access = access
 
     def ejecutar(self,ts,ex):
         v=""
@@ -118,14 +119,27 @@ class ValorVariable():
 
             if flag==0:
                 return valorTemporal(TIPO_TEMP.ERROR, "No existe la variable!!!","", TIPO.ERROR,"","")
-            print("Val ->" + v.temp+"  -> "+str(v.tipo))
-            return valorTemporal(TIPO_TEMP.VALOR, "", v.temp, v.tipo,"","") 
-        except:
+            
+            cad = ""
+            acs = ""
+            index = list() 
+            tp = None 
+            if(self.access != None):
+                for x in self.access:
+                    if(isinstance(x, ValorAcceso)):
+                        acs += "['"+x.valor+"']"
+                    else:
+                        z = x.ejecutar(ts,ex)
+                        cad += z.cadena
+                        acs += "["+z.temporal+"]" 
+            return valorTemporal(TIPO_TEMP.VALOR, cad, v.temp+acs, v.tipo,"","") 
+        except Exception as e:
+            print("Error:  "+str(e))
             return valorTemporal(TIPO_TEMP.ERROR, "No se pudo volver la variable","", TIPO.ERROR,"","")
     
     def ast(self):
-        node = getHash(self)
-        v = "n"+node+"\n n"+node+"[label\" BOOLEAN : "+self.valor+"\"]"
+        node = str(getHash(self))
+        v = "n"+node+"\n n"+node+"[label = \" Variable : "+str(self.valor)+"\"]"
         return v
 
     def gramAsc(self):
@@ -134,27 +148,47 @@ class ValorVariable():
 
 
 # -------------------------------------------------- NODO ARRAY  ---------------------------------------------------------------------
-class ValorArray():    
+class ValorArray2():    
     def __init__(self,valor):
         self.valor = valor
 
     def ejecutar(self,ts,ex):
         try:
-            a = self.valor.ejecutar()
-
+            a = self.valor.ejecutar(ts,ex)
             return valorTemporal(TIPO_TEMP.VALOR, a.cadena, a.temporal, a.tipo,"","") 
         except:
             return valorTemporal(TIPO_TEMP.ERROR, "No se pudo volver Entero","",TIPO.ERROR,"","")
     
     def ast(self):
-        node = getHash(self)
-        v = "n"+node+"\n n"+node+"[label\" STRING : "+self.valor+"\"]"
+        node = str(getHash(self))
+        v = "n"+node+"\n n"+node+"[label = \" [] : \"]"
         return v
 
     def gramAsc(self):
         pass 
 
 
+# -------------------------------------------------- NODO ARRAY  ---------------------------------------------------------------------
+class ValorArray():    
+    def __init__(self,valores):
+        self.valor = valores
+
+    def ejecutar(self,ts,ex):
+        try: 
+            return valorTemporal(TIPO_TEMP.VALOR,"", "", TIPO.ARRAY,"","") 
+        except:
+            return valorTemporal(TIPO_TEMP.ERROR, "No se pudo volver Entero","",TIPO.ERROR,"","")
+    
+    def ast(self):
+        node = str(getHash(self))
+        v = "n"+node+"\n n"+node+"[label = \" .X : \"]"
+        return v
+
+    def gramAsc(self):
+        pass 
+
+
+# ------------------------
 # -------------------------------------------------- NODO Acceso  ---------------------------------------------------------------------
 class ValorAcceso():    
     def __init__(self,valor):
@@ -164,17 +198,20 @@ class ValorAcceso():
         try:
             a = self.valor.ejecutar()
 
-            return valorTemporal(TIPO_TEMP.VALOR, "", a.temporal, "","","") 
+            return valorTemporal(TIPO_TEMP.VALOR, "", a.temporal, a.temporal,"","") 
         except:
             return valorTemporal(TIPO_TEMP.ERROR, "No se pudo volver Entero","",TIPO.ERROR,"","")
     
     def ast(self):
-        node = getHash(self)
-        v = "n"+node+"\n n"+node+"[label\" STRING : "+self.valor+"\"]"
+        node = str(getHash(self))
+        v = "n"+node+"\n n"+node+"[label = \" Acceso : \"]"
         return v
 
     def gramAsc(self):
         pass 
+
+
+
 
 
 

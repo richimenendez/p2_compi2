@@ -19,14 +19,19 @@ class Mayor():
             tipo = operarSuma(val1,val2)
             if(tipo==TIPO.ERROR):
                  return valorTemporal(TIPO_TEMP.ERROR, "TIPOS INCOMPATIBLES","",TIPO.ERROR,"","")
-            return valorTemporal(TIPO_TEMP.EXPRESION, "\n"+str(temp) +" = "+str(val1.temporal) + " > "+str(val2.temporal)+";", temp, tipo, tipo,str(val1.temporal)+",>,"+str(val2.temporal),"") 
+            return valorTemporal(TIPO_TEMP.EXPRESION,  val1.cadena+val2.cadena+"\n"+str(temp) +" = "+str(val1.temporal) + " > "+str(val2.temporal)+";", temp, tipo, str(val1.temporal)+",>,"+str(val2.temporal),"") 
         except Exception as exp:
             return valorTemporal(TIPO_TEMP.ERROR, "No se pudo volver Entero" + str(exp),"", Valor(TIPO.ERROR,"No se pudo volver Entero"),"","")
     
     def ast(self):
-        node = getHash(self)
-        v = "n"+node+"\n n"+node+"[label=\" Exp  : Mayor (>)\"]\nn"+node+"-> "+self.v1.ast()+"\n n"+node+" -> "+self.v2.ast()
-        return v
+        try:
+            node = str(getHash(self))
+            v = "n"+node+"\n n"+node+"[label=\" Exp  : Mayor (>)\"]\nn"+node+"-> "+self.v1.ast()+"\n n"+node+" -> "+self.v2.ast()
+            return v
+        
+        except Exception as e:
+            print("ERROR-ASTt: "+str(e))
+            return "error\n"
 
     def gramAsc(self):
         pass 
@@ -49,14 +54,19 @@ class Menor():
             tipo = operarSuma(val1,val2)
             if(tipo==TIPO.ERROR):
                  return valorTemporal(TIPO_TEMP.ERROR, "TIPOS INCOMPATIBLES","",TIPO.ERROR,"","")
-            return valorTemporal(TIPO_TEMP.EXPRESION, "\n"+str(temp) +" = "+str(val1.temporal) + " < "+str(val2.temporal)+";", temp, tipo, tipo,str(val1.temporal)+",<,"+str(val2.temporal),"") 
+            return valorTemporal(TIPO_TEMP.EXPRESION, val1.cadena+val2.cadena+ "\n"+str(temp) +" = "+str(val1.temporal) + " < "+str(val2.temporal)+";", temp, tipo,str(val1.temporal)+",<,"+str(val2.temporal),"") 
         except Exception as exp:
             return valorTemporal(TIPO_TEMP.ERROR, "No se pudo volver Entero" + str(exp),"", Valor(TIPO.ERROR,"No se pudo volver Entero"),"","")
     
     def ast(self):
-        node = getHash(self)
-        v = "n"+node+"\n n"+node+"[label=\" Exp  : Menor (<)\"]\nn"+node+"-> "+self.v1.ast()+"\n n"+node+" -> "+self.v2.ast()
-        return v
+        try:
+            node = str(getHash(self))
+            v = "n"+node+"\n n"+node+"[label=\" Exp  : Menor (<)\"]\nn"+node+"-> "+self.v1.ast()+"\n n"+node+" -> "+self.v2.ast()
+            return v
+        
+        except Exception as e:
+            print("ERROR-ASTu: "+str(e))
+            return "error\n"
 
     def gramAsc(self):
         pass 
@@ -79,14 +89,19 @@ class MayorQue():
             tipo = operarSuma(val1,val2)
             if(tipo==TIPO.ERROR):
                  return valorTemporal(TIPO_TEMP.ERROR, "TIPOS INCOMPATIBLES","",TIPO.ERROR,"","")
-            return valorTemporal(TIPO_TEMP.EXPRESION, "\n"+str(temp) +" = "+str(val1.temporal) + " >= "+str(val2.temporal)+";", temp, tipo, tipo,str(val1.temporal)+",>=,"+str(val2.temporal),"") 
+            return valorTemporal(TIPO_TEMP.EXPRESION, val1.cadena+val2.cadena+ "\n"+str(temp) +" = "+str(val1.temporal) + " >= "+str(val2.temporal)+";", temp,   tipo,str(val1.temporal)+",>=,"+str(val2.temporal),"") 
         except Exception as exp:
             return valorTemporal(TIPO_TEMP.ERROR, "No se pudo volver Entero" + str(exp),"", Valor(TIPO.ERROR,"No se pudo volver Entero"),"","")
     
     def ast(self):
-        node = getHash(self)
-        v = "n"+node+"\n n"+node+"[label=\" Exp  : MayorQue (>=)\"]\nn"+node+"-> "+self.v1.ast()+"\n n"+node+" -> "+self.v2.ast()
-        return v
+        try:
+            node = str(getHash(self))
+            v = "n"+node+"\n n"+node+"[label=\" Exp  : MayorQue (>=)\"]\nn"+node+"-> "+self.v1.ast()+"\n n"+node+" -> "+self.v2.ast()
+            return v
+        
+        except Exception as e:
+            print("ERROR-ASTv: "+str(e))
+            return "error\n"
 
     def gramAsc(self):
         pass 
@@ -109,14 +124,19 @@ class MenorQue():
             tipo = operarSuma(val1,val2)
             if(tipo==TIPO.ERROR):
                  return valorTemporal(TIPO_TEMP.ERROR, "TIPOS INCOMPATIBLES","",TIPO.ERROR,"","")
-            return valorTemporal(TIPO_TEMP.EXPRESION, "\n"+str(temp) +" = "+str(val1.temporal) + " <= "+str(val2.temporal)+";", temp, tipo, tipo,str(val1.temporal)+",<=,"+str(val2.temporal),"") 
+            return valorTemporal(TIPO_TEMP.EXPRESION, val1.cadena+val2.cadena+ "\n"+str(temp) +" = "+str(val1.temporal) + " <= "+str(val2.temporal)+";", temp, tipo,str(val1.temporal)+",<=,"+str(val2.temporal),"") 
         except Exception as exp:
             return valorTemporal(TIPO_TEMP.ERROR, "No se pudo volver Entero" + str(exp),"", Valor(TIPO.ERROR,"No se pudo volver Entero"),"","")
     
     def ast(self):
-        node = getHash(self)
-        v = "n"+node+"\n n"+node+"[label=\" Exp  : MenorQue (<=)\"]\nn"+node+"-> "+self.v1.ast()+"\n n"+node+" -> "+self.v2.ast()
-        return v
+        try:
+            node = str(getHash(self))
+            v = "n"+node+"\n n"+node+"[label=\" Exp  : MenorQue (<=)\"]\nn"+node+"-> "+self.v1.ast()+"\n n"+node+" -> "+self.v2.ast()
+            return v
+        
+        except Exception as e:
+            print("ERROR-ASTw: "+str(e))
+            return "error\n"
 
     def gramAsc(self):
         pass 
@@ -139,14 +159,19 @@ class Igual():
             tipo = operarSuma(val1,val2)
             if(tipo==TIPO.ERROR):
                  return valorTemporal(TIPO_TEMP.ERROR, "TIPOS INCOMPATIBLES","",TIPO.ERROR,"","")
-            return valorTemporal(TIPO_TEMP.EXPRESION, "\n"+str(temp) +" = "+str(val1.temporal) + " == "+str(val2.temporal)+";", temp, tipo, tipo,str(val1.temporal)+",==,"+str(val2.temporal),"") 
+            return valorTemporal(TIPO_TEMP.EXPRESION, val1.cadena+val2.cadena+ "\n"+str(temp) +" = "+str(val1.temporal) + " == "+str(val2.temporal)+";", temp, tipo,str(val1.temporal)+",==,"+str(val2.temporal),"") 
         except Exception as exp:
             return valorTemporal(TIPO_TEMP.ERROR, "No se pudo volver Entero" + str(exp),"", Valor(TIPO.ERROR,"No se pudo volver Entero"),"","")
     
     def ast(self):
-        node = getHash(self)
-        v = "n"+node+"\n n"+node+"[label=\" Exp  : Igual (==)\"]\nn"+node+"-> "+self.v1.ast()+"\n n"+node+" -> "+self.v2.ast()
-        return v
+        try:
+            node = str(getHash(self))
+            v = "n"+node+"\n n"+node+"[label=\" Exp  : Igual (==)\"]\nn"+node+"-> "+self.v1.ast()+"\n n"+node+" -> "+self.v2.ast()
+            return v
+        
+        except Exception as e:
+            print("ERROR-ASTx: "+str(e))
+            return "error\n"
 
     def gramAsc(self):
         pass 
@@ -169,14 +194,19 @@ class Desigual():
             tipo = operarSuma(val1,val2)
             if(tipo==TIPO.ERROR):
                  return valorTemporal(TIPO_TEMP.ERROR, "TIPOS INCOMPATIBLES","",TIPO.ERROR,"","")
-            return valorTemporal(TIPO_TEMP.EXPRESION, "\n"+str(temp) +" = "+str(val1.temporal) + " != "+str(val2.temporal)+";", temp, tipo, tipo,str(val1.temporal)+",!=,"+str(val2.temporal),"") 
+            return valorTemporal(TIPO_TEMP.EXPRESION,  val1.cadena+val2.cadena+"\n"+str(temp) +" = "+str(val1.temporal) + " != "+str(val2.temporal)+";", temp, tipo,str(val1.temporal)+",!=,"+str(val2.temporal),"") 
         except Exception as exp:
             return valorTemporal(TIPO_TEMP.ERROR, "No se pudo volver Entero" + str(exp),"", Valor(TIPO.ERROR,"No se pudo volver Entero"),"","")
     
     def ast(self):
-        node = getHash(self)
-        v = "n"+node+"\n n"+node+"[label=\" Exp  : Desigual (!=)\"]\nn"+node+"-> "+self.v1.ast()+"\n n"+node+" -> "+self.v2.ast()
-        return v
+        try:
+            node = str(getHash(self))
+            v = "n"+node+"\n n"+node+"[label=\" Exp  : Desigual (!=)\"]\nn"+node+"-> "+self.v1.ast()+"\n n"+node+" -> "+self.v2.ast()
+            return v
+        
+        except Exception as e:
+            print("ERROR-ASTy: "+str(e))
+            return "error\n"
 
     def gramAsc(self):
         pass 
